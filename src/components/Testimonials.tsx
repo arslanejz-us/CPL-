@@ -1,35 +1,73 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import Image, { StaticImageData } from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Placeholder from "./Placeholder";
+import ClientOne from "../../public/client-say-one.png";
+import ClientTwo from "../../public/client-say-two.png";
+import ClientThree from "../../public/client-say-three.png";
 
-const REVIEWS = [
+type Review = {
+  title: string;
+  text: string;
+  image?: StaticImageData;
+};
+
+const REVIEWS: Review[] = [
   {
     title: "The Beverly Hills Candle Co x CPL",
     text: "I've worked with Custom Packaging Lane a few times this year on packaging for our candles.",
+    image: ClientOne,
   },
   {
     title: "FIG1 x Custom Packaging Lane",
     text: "Happy Customer, here! The team at Custom Packaging Lane was accommodating.",
+    image: ClientTwo,
   },
   {
     title: "PANETTONE x Custom Packaging Lane",
     text: "Very happy with Custom Packaging Lane. Sam and Sarah were great to work with.",
+    image: ClientThree,
   },
   {
     title: "LUCENT x Custom Packaging Lane",
     text: "Happy Customer, here! The team at Custom Packaging Lane was accommodating.",
+    image: ClientOne,
   },
 ];
+
+// Triple the list so the track can loop seamlessly in both directions.
+const LOOP = [...REVIEWS, ...REVIEWS, ...REVIEWS];
 
 export default function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Start in the middle copy so there is room to scroll either way.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollLeft = el.scrollWidth / 3;
+  }, []);
+
+  // When a clone boundary is reached, jump silently to the matching
+  // position in the middle copy to fake an infinite loop.
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const third = el.scrollWidth / 3;
+    if (el.scrollLeft <= 1) {
+      el.scrollLeft += third;
+    } else if (el.scrollLeft >= third * 2) {
+      el.scrollLeft -= third;
+    }
+  };
+
   const slide = (dir: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    const amount = el.clientWidth / 2;
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const amount = card ? card.offsetWidth + 20 : el.clientWidth / 2;
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
@@ -46,16 +84,17 @@ export default function Testimonials() {
         </div>
 
         <div className="relative">
+          {/* Arrows — centered on the image (image is h-96 = 384px) */}
           <button
             onClick={() => slide("left")}
-            className="absolute left-2 top-[110px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-brand-primary shadow-lg flex items-center justify-center text-white hover:bg-opacity-90 transition-all"
+            className="absolute left-2 top-48 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border-2 border-brand-primary shadow-md flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all"
             aria-label="Previous"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => slide("right")}
-            className="absolute right-2 top-[110px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-brand-primary shadow-lg flex items-center justify-center text-white hover:bg-opacity-90 transition-all"
+            className="absolute right-2 top-48 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border-2 border-brand-primary shadow-md flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all"
             aria-label="Next"
           >
             <ChevronRight className="w-5 h-5" />
@@ -63,23 +102,36 @@ export default function Testimonials() {
 
           <div
             ref={scrollRef}
-            className="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2"
+            onScroll={handleScroll}
+            className="flex gap-5 overflow-x-auto no-scrollbar pb-2"
           >
-            {REVIEWS.map((r) => (
+            {LOOP.map((r, i) => (
               <div
-                key={r.title}
-                className="w-[300px] lg:w-[calc(33.333%-14px)] flex-shrink-0 snap-start"
+                key={`${r.title}-${i}`}
+                data-card
+                className="w-[78%] sm:w-[45%] lg:w-[27%] flex-shrink-0"
               >
-                <Placeholder
-                  label="Client Photo"
-                  className="h-52 w-full"
-                  rounded="rounded-2xl"
-                />
+                <div className="relative h-96 w-full rounded-2xl overflow-hidden">
+                  {r.image ? (
+                    <Image
+                      src={r.image}
+                      alt={r.title}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  ) : (
+                    <Placeholder
+                      label="Client Photo"
+                      className="h-full w-full"
+                      rounded="rounded-2xl"
+                    />
+                  )}
+                </div>
                 <h3 className="font-montserrat font-semibold text-[15px] text-brand-secondary mt-4">
                   {r.title}
                 </h3>
                 <p
-                  className="font-montserrat font-normal text-[13px] mt-1.5 leading-relaxed"
+                  className="font-montserrat font-normal text-[13px] mt-1.5 leading-relaxed pr-4"
                   style={{ color: "#575757" }}
                 >
                   {r.text}
