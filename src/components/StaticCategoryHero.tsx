@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import categoryBg from "../../public/Product-categories/Product-categories-background.webp";
 
 const inputClass =
   "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none rounded-full py-3 px-5 text-sm transition-colors placeholder-gray-400";
@@ -20,16 +18,14 @@ export default function StaticCategoryHero({
   description,
 }: StaticCategoryHeroProps) {
   return (
-    <section className="relative py-16 lg:py-24 min-h-screen flex items-center overflow-hidden">
-      {/* Full-width background image */}
-      <Image
-        src={categoryBg}
-        alt={title}
-        fill
-        priority
-        className="object-cover object-right"
-      />
-
+    <section
+      className="relative py-16 lg:py-24 min-h-screen flex items-center overflow-hidden"
+      style={{
+        backgroundImage: 'url(/Product-categories/Product-categories-background.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'right center',
+      }}
+    >
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
 
@@ -39,7 +35,7 @@ export default function StaticCategoryHero({
           {/* Left: Content */}
           <div className="flex flex-col gap-8">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <Link href="/" className="text-[#00756E] text-sm font-normal hover:underline">
                 Home
               </Link>
@@ -113,7 +109,7 @@ export default function StaticCategoryHero({
             </form>
           </div>
 
-          {/* Right: Background image fills the space (already set via background) */}
+          {/* Right: Background image fills the space */}
         </div>
       </div>
     </section>
