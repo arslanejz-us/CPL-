@@ -3,35 +3,44 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
-const FAQS = [
+interface FAQ {
+  id?: string;
+  question?: string;
+  answer?: string;
+}
+
+const DEFAULT_FAQS = [
   {
-    q: "What is your standard turnaround time to deliver custom packaging?",
-    a: "We have different turnaround options available depending upon customer needs, but the standard turnaround time for the complete production and shipment of custom packaging and printing is 7-10 business days.",
+    question: "What is your standard turnaround time to deliver custom packaging?",
+    answer: "We have different turnaround options available depending upon customer needs, but the standard turnaround time for the complete production and shipment of custom packaging and printing is 7-10 business days.",
   },
   {
-    q: "How do I contact you to order custom packaging?",
-    a: "You can reach us by phone, email, or live chat, and our packaging specialists will guide you through placing your custom order.",
+    question: "How do I contact you to order custom packaging?",
+    answer: "You can reach us by phone, email, or live chat, and our packaging specialists will guide you through placing your custom order.",
   },
   {
-    q: "What type of printing options do you have for custom boxes?",
-    a: "We offer digital, offset, and flexographic printing along with finishes such as matte, gloss, soft-touch, spot UV, and foil stamping.",
+    question: "What type of printing options do you have for custom boxes?",
+    answer: "We offer digital, offset, and flexographic printing along with finishes such as matte, gloss, soft-touch, spot UV, and foil stamping.",
   },
   {
-    q: "How can I process my custom packaging order?",
-    a: "Simply request a quote, approve your 3D mockup, confirm your order, and we move it straight into production.",
+    question: "How can I process my custom packaging order?",
+    answer: "Simply request a quote, approve your 3D mockup, confirm your order, and we move it straight into production.",
   },
   {
-    q: "What is the minimum quantity of custom boxes that I can order?",
-    a: "Our minimum order quantity starts at 100 units, making premium packaging accessible for businesses of every size.",
+    question: "What is the minimum quantity of custom boxes that I can order?",
+    answer: "Our minimum order quantity starts at 100 units, making premium packaging accessible for businesses of every size.",
   },
   {
-    q: "What packaging elements can I customize?",
-    a: "You can customize the box style, dimensions, material, printing, finish, inserts, and branding to fit your product.",
+    question: "What packaging elements can I customize?",
+    answer: "You can customize the box style, dimensions, material, printing, finish, inserts, and branding to fit your product.",
   },
 ];
 
-export default function FAQ() {
+export default function FAQ({ faqs }: { faqs?: FAQ[] }) {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+  // Use provided FAQs or fallback to default
+  const faqList = faqs && faqs.length > 0 ? faqs : DEFAULT_FAQS;
 
   return (
     <section className="bg-white py-20" id="faq">
@@ -51,16 +60,16 @@ export default function FAQ() {
 
           {/* Right accordion */}
           <div className="flex flex-col divide-y divide-gray-100 border-t border-gray-100">
-            {FAQS.map((faq, index) => {
+            {faqList.map((faq, index) => {
               const isOpen = openIdx === index;
               return (
-                <div key={index}>
+                <div key={faq.id || index}>
                   <button
                     onClick={() => setOpenIdx(isOpen ? null : index)}
                     className="w-full text-left py-5 flex items-center justify-between gap-4"
                   >
                     <span className={`text-sm font-semibold ${isOpen ? "text-brand-primary" : "text-brand-secondary"}`}>
-                      {faq.q}
+                      {faq.question}
                     </span>
                     <span className="flex-shrink-0 text-brand-primary">
                       {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -68,7 +77,7 @@ export default function FAQ() {
                   </button>
                   {isOpen && (
                     <p className="pb-5 -mt-1 text-sm text-gray-500 leading-relaxed">
-                      {faq.a}
+                      {faq.answer}
                     </p>
                   )}
                 </div>

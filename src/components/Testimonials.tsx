@@ -1,54 +1,60 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Placeholder from "./Placeholder";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import ClientOne from "../../public/client-say-one.png";
 import ClientTwo from "../../public/client-say-two.png";
 import ClientThree from "../../public/client-say-three.png";
 
-type Review = {
-  title: string;
-  text: string;
-  image?: StaticImageData;
-};
+interface Testimonial {
+  id?: string;
+  client_name?: string;
+  client_company?: string;
+  client_image?: string;
+  content?: string;
+  rating?: number;
+}
 
-const REVIEWS: Review[] = [
+const DEFAULT_REVIEWS = [
   {
-    title: "The Beverly Hills Candle Co x CPL",
-    text: "I've worked with Custom Packaging Lane a few times this year on packaging for our candles.",
-    image: ClientOne,
+    client_name: "Beverly Hills Candle Co",
+    client_company: "CEO",
+    content: "I've worked with Custom Packaging Lane a few times this year on packaging for our candles.",
+    client_image: ClientOne,
+    rating: 5,
   },
   {
-    title: "FIG1 x Custom Packaging Lane",
-    text: "Happy Customer, here! The team at Custom Packaging Lane was accommodating.",
-    image: ClientTwo,
+    client_name: "FIG1 Team",
+    client_company: "Founder",
+    content: "Happy Customer, here! The team at Custom Packaging Lane was accommodating.",
+    client_image: ClientTwo,
+    rating: 5,
   },
   {
-    title: "PANETTONE x Custom Packaging Lane",
-    text: "Very happy with Custom Packaging Lane. Sam and Sarah were great to work with.",
-    image: ClientThree,
-  },
-  {
-    title: "LUCENT x Custom Packaging Lane",
-    text: "Happy Customer, here! The team at Custom Packaging Lane was accommodating.",
-    image: ClientOne,
+    client_name: "PANETTONE",
+    client_company: "Manager",
+    content: "Very happy with Custom Packaging Lane. Sam and Sarah were great to work with.",
+    client_image: ClientThree,
+    rating: 5,
   },
 ];
 
-// Triple the list so the track can loop seamlessly in both directions.
-const LOOP = [...REVIEWS, ...REVIEWS, ...REVIEWS];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }: { testimonials?: Testimonial[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Use provided testimonials or fallback
+  const reviews = testimonials && testimonials.length > 0 ? testimonials : DEFAULT_REVIEWS;
+
+  // Triple the list so the track can loop seamlessly in both directions.
+  const LOOP = [...reviews, ...reviews, ...reviews];
 
   // Start in the middle copy so there is room to scroll either way.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     el.scrollLeft = el.scrollWidth / 3;
-  }, []);
+  }, [reviews.length]);
 
   // When a clone boundary is reached, jump silently to the matching
   // position in the middle copy to fake an infinite loop.
@@ -107,34 +113,41 @@ export default function Testimonials() {
           >
             {LOOP.map((r, i) => (
               <div
-                key={`${r.title}-${i}`}
+                key={`${r.client_name}-${i}`}
                 data-card
                 className="w-[78%] sm:w-[45%] lg:w-[27%] flex-shrink-0"
               >
                 <div className="relative h-96 w-full rounded-2xl overflow-hidden">
-                  {r.image ? (
+                  {r.client_image ? (
                     <Image
-                      src={r.image}
-                      alt={r.title}
+                      src={typeof r.client_image === 'string' ? r.client_image : r.client_image}
+                      alt={r.client_name || "Client"}
                       fill
                       className="object-cover object-center"
                     />
                   ) : (
-                    <Placeholder
-                      label="Client Photo"
-                      className="h-full w-full"
-                      rounded="rounded-2xl"
-                    />
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      <span className="text-gray-400">No Image</span>
+                    </div>
                   )}
                 </div>
-                <h3 className="font-montserrat font-semibold text-[15px] text-brand-secondary mt-4">
-                  {r.title}
-                </h3>
-                <p
-                  className="font-montserrat font-normal text-[13px] mt-1.5 leading-relaxed pr-4"
-                  style={{ color: "#575757" }}
-                >
-                  {r.text}
+                <div className="mt-4">
+                  {r.rating && (
+                    <div className="flex gap-1 mb-2">
+                      {Array.from({ length: r.rating }).map((_, idx) => (
+                        <Star key={idx} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  )}
+                  <h3 className="font-semibold text-sm text-brand-secondary">
+                    {r.client_name}
+                  </h3>
+                  {r.client_company && (
+                    <p className="text-xs text-gray-500">{r.client_company}</p>
+                  )}
+                </div>
+                <p className="font-normal text-sm mt-2 leading-relaxed text-gray-600">
+                  "{r.content}"
                 </p>
               </div>
             ))}

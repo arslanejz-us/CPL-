@@ -8,7 +8,7 @@ interface ContentSection {
   subtitle?: string;
   description: string;
   bullets: string[];
-  image: StaticImageData;
+  image: StaticImageData | string;
   imagePosition: "left" | "right";
 }
 
@@ -30,18 +30,20 @@ export default function CategoryContentSections({
               }`}
             >
               {/* Image */}
-              <div
-                className={`relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden ${
-                  section.imagePosition === "right" ? "lg:col-start-2" : ""
-                }`}
-              >
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {section.image && (
+                <div
+                  className={`relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden ${
+                    section.imagePosition === "right" ? "lg:col-start-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
 
               {/* Content */}
               <div className={section.imagePosition === "right" ? "lg:col-start-1" : ""}>

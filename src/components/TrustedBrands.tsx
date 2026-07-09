@@ -1,8 +1,24 @@
-const BRANDS = ["Google", "hp", "shopify", "L'ORÉAL", "PIQUE", "GREEN GIRL"];
+interface Brand {
+  id?: string;
+  brand_name?: string;
+  brand_logo?: string;
+}
 
-export default function TrustedBrands() {
+const DEFAULT_BRANDS = [
+  { brand_name: "Google" },
+  { brand_name: "HP" },
+  { brand_name: "Shopify" },
+  { brand_name: "L'ORÉAL" },
+  { brand_name: "PIQUE" },
+  { brand_name: "GREEN GIRL" },
+];
+
+export default function TrustedBrands({ brands }: { brands?: Brand[] }) {
+  // Use provided brands or fallback to default
+  const brandsList = brands && brands.length > 0 ? brands : DEFAULT_BRANDS;
+
   // Duplicate so the marquee loops seamlessly
-  const loop = [...BRANDS, ...BRANDS, ...BRANDS];
+  const loop = [...brandsList, ...brandsList, ...brandsList];
 
   return (
     <section className="relative flex-shrink-0 w-full bg-white py-5 overflow-hidden">
@@ -16,7 +32,7 @@ export default function TrustedBrands() {
             key={i}
             className="font-display font-semibold text-xl sm:text-2xl tracking-wide text-gray-400"
           >
-            {brand}
+            {brand.brand_name}
           </span>
         ))}
       </div>

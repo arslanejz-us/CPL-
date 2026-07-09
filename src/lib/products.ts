@@ -1,9 +1,4 @@
-import { StaticImageData } from "next/image";
-
-const CustomTuckBoxImg = require("../../public/Custom-tuck-boxes.png").default;
-const RetailPackagingImg = require("../../public/Retail-packaging.png").default;
-const CosmeticPackagingImg = require("../../public/Cosmetic-packaging.png").default;
-const BeveragePackagingImg = require("../../public/Beverage-Packaging.png").default;
+import { cache } from "react";
 
 export interface CircularFeature {
   number: number;
@@ -17,7 +12,7 @@ export interface ContentSection {
   subtitle?: string;
   description: string;
   bullets: string[];
-  image: StaticImageData;
+  image?: string;
   imagePosition: "left" | "right";
 }
 
@@ -31,7 +26,7 @@ export interface ProductShowcaseItem {
   id: number;
   title: string;
   description: string;
-  image: StaticImageData;
+  image?: string;
 }
 
 export interface Product {
@@ -41,7 +36,7 @@ export interface Product {
   subtitle: string;
   description: string;
   badge: string;
-  heroImage: StaticImageData;
+  heroImage?: string;
   heroQuickBenefits: string[];
   keyFeatures: {
     title: string;
@@ -52,159 +47,100 @@ export interface Product {
     title: string;
     subtitle?: string;
     description?: string;
-    image: StaticImageData;
+    image?: string;
     features: CircularFeature[];
   };
   contentSections: ContentSection[];
   showcaseItems: ProductShowcaseItem[];
   relatedProducts: RelatedProduct[];
+  category_id?: string;
 }
 
-// Sample product data
-export const PRODUCTS: Record<string, Product> = {
-  "straight-tuck-boxes": {
-    id: "straight-tuck-boxes",
-    name: "Straight Tuck Boxes",
-    title: "Custom Straight Tuck Boxes",
-    subtitle: "Professional, versatile, and cost-effective packaging",
-    description:
-      "Professional, versatile, and cost-effective packaging that protects your products while enhancing your brand presence on shelves.",
-    badge: "PREMIUM PACKAGING SOLUTION",
-    heroImage: CustomTuckBoxImg,
-    heroQuickBenefits: [
-      "Easy to assemble",
-      "Excellent durability",
-      "Fully customizable",
-      "Eco-friendly options",
-    ],
-    keyFeatures: [
-      {
-        title: "Durable Protection",
-        description: "Premium materials protect your products during shipping",
-        iconName: "Shield",
+async function fetchFromSupabase(table: string, query: string): Promise<any> {
+  const supabaseUrl = "https://ofcwangxybkcigwhonia.supabase.co";
+  const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9mY3dhbmd4eWJrY2lnd2hvbmlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4MzQ1MDEsImV4cCI6MjA5ODQxMDUwMX0.1BFTDegKKBedvS6kfsqHPpJvkJPWtWSxJ-GX0OldPE4";
+
+  try {
+    const url = `${supabaseUrl}/rest/v1/${table}${query}`;
+    const response = await fetch(url, {
+      headers: {
+        apikey: supabaseAnonKey,
+        Authorization: `Bearer ${supabaseAnonKey}`,
+        "Content-Type": "application/json",
       },
-      {
-        title: "Eco-Friendly Options",
-        description: "Sustainable materials that appeal to conscious consumers",
-        iconName: "Leaf",
-      },
-      {
-        title: "Quick Assembly",
-        description: "Easy to assemble with minimal additional materials",
-        iconName: "Zap",
-      },
-      {
-        title: "Cost-Effective",
-        description: "Competitive pricing without compromising on quality",
-        iconName: "Package",
-      },
-    ],
-    packagingBenefits: {
-      title: "Packaging Made Easier & Quicker",
-      subtitle: "Streamlined Process from Design to Delivery",
-      description:
-        "Get your custom tuck boxes faster with our optimized production workflow",
-      image: CustomTuckBoxImg,
-      features: [
-        {
-          number: 1,
-          iconName: "Zap",
-          title: "Quick Design",
-          description: "Fast turnaround on design approvals and customization",
-        },
-        {
-          number: 2,
-          iconName: "Package",
-          title: "Fast Production",
-          description: "Efficient manufacturing process ensures quick delivery",
-        },
-        {
-          number: 3,
-          iconName: "Leaf",
-          title: "Easy Assembly",
-          description: "Simple fold-and-tuck design requires minimal effort",
-        },
-        {
-          number: 4,
-          iconName: "Shield",
-          title: "Reliable Quality",
-          description: "Consistent quality control throughout production",
-        },
-      ],
-    },
-    contentSections: [
-      {
-        title: "Custom Tuck Boxes for Durable, Retail-Ready Product Packaging",
-        subtitle: "Industry-Leading Packaging Solutions",
-        description:
-          "Our custom tuck boxes are engineered for optimal product protection while maintaining an attractive retail presence. Perfect for cosmetics, food, beverages, and retail products, these versatile boxes combine functionality with stunning visual impact.",
-        bullets: [
-          "Durable construction withstands shipping and handling",
-          "Customizable sizes to fit your exact product specifications",
-          "Full-color printing with premium finish options",
-          "Eco-friendly materials available for sustainable brands",
-          "Fast turnaround times without compromising quality",
-          "Expert design assistance from our creative team",
-        ],
-        image: RetailPackagingImg,
-        imagePosition: "right",
-      },
-      {
-        title:
-          "Premium-Grade Materials Tailored for Your Product Safety and Print Quality",
-        subtitle: "Superior Materials & Craftsmanship",
-        description:
-          "We understand that packaging is the first point of contact with your customers. That's why we use only premium-grade materials and employ advanced printing techniques to ensure your brand stands out while protecting your products.",
-        bullets: [
-          "Premium cardboard stock with superior durability",
-          "Advanced CMYK printing technology for vibrant colors",
-          "Specialty finishing options including matte, gloss, and spot UV",
-          "Reinforced tuck tabs for secure closure and longevity",
-          "FDA-compliant materials for food and beverage products",
-          "Moisture-resistant options for sensitive product protection",
-        ],
-        image: CustomTuckBoxImg,
-        imagePosition: "left",
-      },
-    ],
-    showcaseItems: [
-      {
-        id: 1,
-        title: "Cosmetic Products",
-        description: "Perfect for skincare and beauty products",
-        image: CosmeticPackagingImg,
-      },
-      {
-        id: 2,
-        title: "Retail Products",
-        description: "Ideal for retail store shelves",
-        image: RetailPackagingImg,
-      },
-      {
-        id: 3,
-        title: "Beverage Products",
-        description: "Suitable for drinks and beverages",
-        image: BeveragePackagingImg,
-      },
-      {
-        id: 4,
-        title: "Food Products",
-        description: "Great for food and snack items",
-        image: CustomTuckBoxImg,
-      },
-    ],
-    relatedProducts: [
-      { id: "cosmetic-boxes", name: "Cosmetic Boxes", link: "/products/cosmetic-boxes" },
-      { id: "mailer-boxes", name: "Mailer Boxes", link: "/products/mailer-boxes" },
-      { id: "soap-boxes", name: "Soap Boxes", link: "/products/soap-boxes" },
-    ],
-  },
+    });
+
+    if (!response.ok) {
+      console.error(`Supabase API error: ${response.status} ${response.statusText}`);
+      return null;
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Supabase fetch error:", error);
+    return null;
+  }
+}
+
+export const getProduct = async (productId: string): Promise<Product | undefined> => {
+  try {
+    const data = await fetchFromSupabase("products", `?id=eq.${productId}&select=*&limit=1`);
+
+    if (!data || !Array.isArray(data) || data.length === 0) {
+      console.log(`Product not found: ${productId}`);
+      return undefined;
+    }
+
+    return (data[0] as unknown as Product);
+  } catch (error) {
+    console.error(`getProduct error: ${error}`);
+    return undefined;
+  }
 };
 
-export function getProduct(productId: string): Product | undefined {
-  return PRODUCTS[productId];
-}
+export const getAllProducts = cache(async (): Promise<Product[]> => {
+  try {
+    const data = await fetchFromSupabase("products", `?select=*`);
 
-export function getAllProductIds(): string[] {
-  return Object.keys(PRODUCTS);
-}
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    return (data as unknown as Product[]);
+  } catch (error) {
+    console.error(`getAllProducts error: ${error}`);
+    return [];
+  }
+});
+
+export const getAllProductIds = cache(async (): Promise<string[]> => {
+  try {
+    const data = await fetchFromSupabase("products", `?select=id`);
+
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    return data.map((item: { id: string }) => item.id);
+  } catch (error) {
+    console.error(`getAllProductIds error: ${error}`);
+    return [];
+  }
+});
+
+export const getProductsByCategory = cache(
+  async (categoryId: string): Promise<Product[]> => {
+    try {
+      const data = await fetchFromSupabase("products", `?category_id=eq.${categoryId}&select=*`);
+
+      if (!Array.isArray(data)) {
+        return [];
+      }
+
+      return (data as unknown as Product[]);
+    } catch (error) {
+      console.error(`getProductsByCategory error: ${error}`);
+      return [];
+    }
+  }
+);

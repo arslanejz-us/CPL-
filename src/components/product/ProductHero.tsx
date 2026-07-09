@@ -53,15 +53,17 @@ export default function ProductHero({ product }: ProductHeroProps) {
           </div>
 
           {/* Image */}
-          <div className="relative h-[400px] sm:h-[500px]">
-            <Image
-              src={product.heroImage}
-              alt={product.title}
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {product.heroImage && (
+            <div className="relative h-[400px] sm:h-[500px]">
+              <Image
+                src={product.heroImage}
+                alt={product.title}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

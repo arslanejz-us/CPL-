@@ -14,7 +14,7 @@ interface BenefitsCircularProps {
   title: string;
   subtitle?: string;
   description?: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   features: CircularFeature[];
 }
 
@@ -112,17 +112,19 @@ export default function BenefitsCircular({
             </div>
 
             {/* Center Image */}
-            <div className="lg:col-span-2">
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+            {image && (
+              <div className="lg:col-span-2">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Right Features Column */}
             <div className="lg:col-span-5 space-y-6">
