@@ -1,11 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import googleRating from "../../public/google-rating.png";
-import trustpilot from "../../public/trustpilot.webp";
-import womenOwned from "../../public/womenowned.webp";
-import usps from "../../public/USPS.webp";
-import dhl from "../../public/DHL.webp";
-import fedex from "../../public/FedEx.webp";
 
 const COMPANY_LINKS: { label: string; href: string }[] = [
   { label: "About Us", href: "/about-us" },
@@ -51,15 +45,15 @@ const COLUMNS = [
 ];
 
 const TRUST_BADGES = [
-  { src: googleRating, alt: "Google Reviews" },
-  { src: trustpilot, alt: "Trustpilot" },
-  { src: womenOwned, alt: "Women Owned" },
+  { src: "/google-rating.png", alt: "Google Reviews" },
+  { src: "/trustpilot.webp", alt: "Trustpilot" },
+  { src: "/womenowned.webp", alt: "Women Owned" },
 ];
 
 const LOGISTICS = [
-  { src: usps, alt: "USPS", className: "h-12 w-auto object-contain" },
-  { src: dhl, alt: "DHL", className: "h-12 w-auto object-contain" },
-  { src: fedex, alt: "FedEx", className: "h-8 w-auto object-contain" },
+  { src: "/USPS.webp", alt: "USPS", className: "h-12 w-auto object-contain" },
+  { src: "/DHL.webp", alt: "DHL", className: "h-12 w-auto object-contain" },
+  { src: "/FedEx.webp", alt: "FedEx", className: "h-8 w-auto object-contain" },
 ];
 
 /* --- Social icons --- */
