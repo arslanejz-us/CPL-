@@ -21,7 +21,7 @@ const tabs: Tab[] = [
   {
     id: "base-material",
     name: "Base Material",
-    icon: "/Product-categories/flexible.svg",
+    icon: "/tabs-icons/Base-Material.svg",
     products: [
       {
         id: "1",
@@ -46,7 +46,7 @@ const tabs: Tab[] = [
   {
     id: "coatings",
     name: "Coatings",
-    icon: "/Product-categories/fastest.svg",
+    icon: "/tabs-icons/Coatings.svg",
     products: [
       {
         id: "1",
@@ -77,7 +77,7 @@ const tabs: Tab[] = [
   {
     id: "printings",
     name: "Printings",
-    icon: "/Product-categories/support.svg",
+    icon: "/tabs-icons/Printings.svg",
     products: [
       {
         id: "1",
@@ -102,7 +102,7 @@ const tabs: Tab[] = [
   {
     id: "wrappings",
     name: "Wrappings",
-    icon: "/Product-categories/price-match.svg",
+    icon: "/tabs-icons/Wrappings.svg",
     products: [
       {
         id: "1",
@@ -127,7 +127,7 @@ const tabs: Tab[] = [
   {
     id: "add-ons",
     name: "Add-ons",
-    icon: "/Product-categories/flexible.svg",
+    icon: "/tabs-icons/Add-ons.svg",
     products: [
       {
         id: "1",
@@ -158,7 +158,7 @@ const tabs: Tab[] = [
   {
     id: "inserts",
     name: "Inserts",
-    icon: "/Product-categories/fastest.svg",
+    icon: "/tabs-icons/Inserts.svg",
     products: [
       {
         id: "1",
@@ -183,7 +183,7 @@ const tabs: Tab[] = [
   {
     id: "finishes",
     name: "Finishes",
-    icon: "/Product-categories/support.svg",
+    icon: "/tabs-icons/Finishes.svg",
     products: [
       {
         id: "1",

@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import heroBg from "../../../public/about-us/hero-bg.png";
 
 const INDUSTRIES = [
   { id: "apparel-fashion", name: "Apparel & Fashion" },
@@ -57,19 +58,19 @@ export default function IndustriesPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section
-          className="relative py-24 lg:py-32 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/industry-background.png')",
-            backgroundColor: "#f5f5f5",
-          }}
-        >
-          <div className="absolute inset-0 bg-white/70"></div>
+        <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden">
+          <Image
+            src={heroBg}
+            alt=""
+            fill
+            className="object-cover object-center pointer-events-none"
+            priority
+          />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 style={{ fontSize: "40px", fontFamily: "Inter", fontWeight: 500, color: "#000000" }} className="mb-4">
-              Custom Packaging for Every Industry
+            <h1 className="text-4xl sm:text-[40px] font-medium font-montserrat text-brand-secondary mb-4">
+              Industries
             </h1>
-            <p style={{ fontFamily: "Inter", fontSize: "16px", fontWeight: 400 }} className="text-gray-700 max-w-2xl mx-auto">
+            <p className="text-base text-[#575757] max-w-2xl mx-auto leading-relaxed">
               Custom Packaging Lane crafts premium packaging solutions trusted by 3,000+ businesses worldwide.
             </p>
           </div>
