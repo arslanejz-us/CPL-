@@ -16,10 +16,10 @@ export default function PrivacyPolicyPage() {
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32 bg-gradient-to-r from-[#00756E] to-[#007066] border-b border-gray-300">
           {/* Gradient Fade Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white to-transparent pointer-events-none" style={{ background: 'linear-gradient(to top, white, rgba(255,255,255,0.7), rgba(0,117,110,0.3), transparent)' }}></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-white mb-4 font-medium" style={{ fontSize: '40px' }}>
+            <h1 className="text-white mb-4" style={{ fontSize: '40px', fontWeight: 500 }}>
               Privacy Policy
             </h1>
             <p className="text-lg text-gray-100 max-w-2xl mx-auto">
