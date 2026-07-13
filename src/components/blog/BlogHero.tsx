@@ -1,6 +1,6 @@
 export default function BlogHero() {
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-br from-gray-100 to-white">
+    <section className="py-24 lg:py-32 bg-[#F7F7F7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-brand-secondary mb-4">
           Blog
