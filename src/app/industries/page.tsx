@@ -43,7 +43,7 @@ const INDUSTRIES = [
 ];
 
 export default function IndustriesPage() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleIndustryClick = (id: string) => {
     setSelectedCategory(id);
