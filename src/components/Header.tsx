@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, Menu, X, ChevronDown, Leaf } from "lucide-react";
+import Image from "next/image";
+import { Search, Menu, X, ChevronDown } from "lucide-react";
 
 const NAV = [
   { name: "Industries", href: "#industries", caret: true },
@@ -14,18 +15,14 @@ const NAV = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-      <span className="w-9 h-9 rounded-md bg-brand-primary flex items-center justify-center text-white">
-        <Leaf className="w-5 h-5" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="text-sm font-bold tracking-[0.15em] text-brand-secondary font-display">
-          CUSTOM
-        </span>
-        <span className="text-sm font-bold tracking-[0.15em] text-brand-secondary font-display -mt-0.5">
-          PACKAGING LANE
-        </span>
-      </span>
+    <Link href="/" className="flex items-center flex-shrink-0">
+      <Image
+        src="/website-logos/Website-Logo.svg"
+        alt="Custom Packaging Lane"
+        width={180}
+        height={40}
+        className="h-10 w-auto"
+      />
     </Link>
   );
 }

@@ -194,14 +194,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-200 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="w-8 h-8 rounded-md bg-brand-primary flex items-center justify-center text-white">
-              <Leaf className="w-4 h-4" />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-xs font-bold tracking-[0.15em] text-brand-secondary font-display">CUSTOM</span>
-              <span className="text-xs font-bold tracking-[0.15em] text-brand-secondary font-display -mt-0.5">PACKAGING LANE</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/website-logos/Website-Logo.svg"
+              alt="Custom Packaging Lane"
+              width={140}
+              height={32}
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Copyright */}
