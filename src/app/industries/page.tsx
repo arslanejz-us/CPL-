@@ -4,44 +4,53 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const INDUSTRIES = [
-  { id: "apparel-fashion", name: "Apparel & Fashion", icon: "👕" },
-  { id: "automotive", name: "Automotive", icon: "🚗" },
-  { id: "bakery", name: "Bakery", icon: "🛒" },
-  { id: "beauty-skincare", name: "Beauty & Skincare", icon: "💄" },
-  { id: "beverages", name: "Beverage, Wine, Liquor", icon: "🍷" },
-  { id: "candles", name: "Candle", icon: "🕯️" },
-  { id: "candy-sweet", name: "Candy & Sweet", icon: "🍬" },
-  { id: "cbd", name: "CBD", icon: "🌿" },
-  { id: "chocolate", name: "Chocolate", icon: "🍫" },
-  { id: "coffee-tea", name: "Coffee & Tea", icon: "☕" },
-  { id: "cosmetics", name: "Cosmetics", icon: "💅" },
-  { id: "custom-coffee-cups", name: "Custom Coffee Cups", icon: "☕" },
-  { id: "ecommerce", name: "Ecommerce", icon: "📦" },
-  { id: "electronics", name: "Electronics", icon: "🎧" },
-  { id: "food-restaurant", name: "Food & Restaurant", icon: "🍽️" },
-  { id: "fragrance", name: "Fragrance", icon: "🧴" },
-  { id: "gadgets-accessories", name: "Gadgets and Accessories", icon: "🔌" },
-  { id: "gift", name: "Gift", icon: "🎁" },
-  { id: "health-wellness", name: "Health & Wellness", icon: "💊" },
-  { id: "holiday", name: "Holiday", icon: "🎄" },
-  { id: "jewelry", name: "Jewelry", icon: "💎" },
-  { id: "marijuana-cannabis", name: "Marijuana & Cannabis", icon: "🌿" },
-  { id: "office-workplace", name: "Office & Workplace", icon: "💼" },
-  { id: "packaging", name: "Packaging", icon: "📮" },
-  { id: "pharma", name: "Pharma", icon: "💊" },
-  { id: "presentation", name: "Presentation", icon: "🎁" },
-  { id: "retail", name: "Retail", icon: "🛍️" },
-  { id: "shipping", name: "Shipping", icon: "📦" },
-  { id: "sports", name: "Sports", icon: "⚽" },
-  { id: "stationery", name: "Stationery", icon: "📝" },
-  { id: "sustainable-packaging", name: "Sustainable Packaging", icon: "♻️" },
-  { id: "tobacco-cigarette", name: "Tobacco & Cigarette", icon: "🚬" },
+  { id: "apparel-fashion", name: "Apparel & Fashion" },
+  { id: "baby-products", name: "Baby Products" },
+  { id: "bakery", name: "Bakery" },
+  { id: "beverages", name: "Beverage, Wine, Liquor" },
+  { id: "cbd", name: "CBD" },
+  { id: "candles", name: "Candle" },
+  { id: "candy-sweet", name: "candy & Sweet" },
+  { id: "chocolate", name: "Chocolate" },
+  { id: "coffee-tea", name: "Coffe & Tea" },
+  { id: "cosmetics", name: "Cosmetics" },
+  { id: "custom-coffee-cups", name: "Custom Coffee Cups" },
+  { id: "ecommerce", name: "Ecommerce" },
+  { id: "electronics", name: "Electronics" },
+  { id: "food-restaurant", name: "Food & Restaurant" },
+  { id: "fragrance", name: "Fragrance" },
+  { id: "gadgets-accessories", name: "Gadgets-and-Accessories" },
+  { id: "gift", name: "Gift" },
+  { id: "health-wellness", name: "Health-and-wellness" },
+  { id: "holiday", name: "Holiday" },
+  { id: "jewelry", name: "Jewelry" },
+  { id: "marijuana-cannabis", name: "Marijuana-and-Cannabis" },
+  { id: "office-workplace", name: "Office-and-workplace" },
+  { id: "pet-supplies", name: "Pet" },
+  { id: "pharma", name: "Pharma" },
+  { id: "presentation", name: "Presentation" },
+  { id: "retail", name: "Retail" },
+  { id: "shipping", name: "Shipping" },
+  { id: "soap", name: "Soap" },
+  { id: "sports", name: "Sport" },
+  { id: "stationery", name: "Stationery" },
+  { id: "sustainable-packaging", name: "Sustainable-Packaging" },
+  { id: "tobacco-cigarette", name: "Tobacco-and-Cigarette" },
 ];
 
 export default function IndustriesPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState(INDUSTRIES[0].id);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleIndustryClick = (id) => {
+    setSelectedCategory(id);
+    const element = document.getElementById(`industry-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   return (
     <>
@@ -70,20 +79,19 @@ export default function IndustriesPage() {
         <section className="py-16 lg:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8">
-              {/* Sidebar - Static */}
-              <div className="hidden lg:block w-64 flex-shrink-0">
-                <div className="sticky top-20 bg-white">
-                  <h3 className="text-sm font-bold text-gray-900 mb-4">Industries (32)</h3>
-                  <nav className="space-y-2 max-h-96 overflow-y-auto">
+              {/* Sidebar - Static (no scroll, no sticky) */}
+              <div className="hidden lg:block w-56 flex-shrink-0">
+                <div className="bg-white">
+                  <h3 style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "12px", color: "#00756E", borderBottom: "1px solid #00756E", paddingBottom: "8px" }} className="mb-4 font-medium">
+                    Industries ({INDUSTRIES.length})
+                  </h3>
+                  <nav className="space-y-2">
                     {INDUSTRIES.map((industry) => (
                       <button
                         key={industry.id}
-                        onClick={() => setSelectedIndustry(industry.id)}
-                        className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
-                          selectedIndustry === industry.id
-                            ? "bg-brand-primary text-white"
-                            : "text-gray-600 hover:bg-gray-100"
-                        }`}
+                        onClick={() => handleIndustryClick(industry.id)}
+                        style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "12px", color: "#000000" }}
+                        className="block w-full text-left hover:text-brand-primary transition-colors"
                       >
                         {industry.name}
                       </button>
@@ -92,18 +100,45 @@ export default function IndustriesPage() {
                 </div>
               </div>
 
-              {/* Industries Grid */}
+              {/* Industries Grid - Centered */}
               <div className="flex-1">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 justify-items-stretch" style={{ gap: "20px" }}>
                   {INDUSTRIES.map((industry) => (
-                    <Link
+                    <div
                       key={industry.id}
-                      href={`/industries/${industry.id}`}
-                      className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-lg hover:shadow-lg hover:bg-gray-100 transition-all"
+                      id={`industry-${industry.id}`}
                     >
-                      <div className="text-5xl mb-3">{industry.icon}</div>
-                      <h3 className="text-sm font-medium text-gray-900 text-center">{industry.name}</h3>
-                    </Link>
+                      <Link
+                        href={`/industries/${industry.id}`}
+                        className={`w-full flex flex-col items-center justify-center p-4 rounded-lg hover:shadow-lg transition-all ${
+                          selectedCategory === industry.id
+                            ? "shadow-lg ring-2 ring-brand-primary"
+                            : "hover:shadow-md"
+                        }`}
+                        style={{
+                          backgroundColor: "#F7F7F7",
+                          height: "281.7px"
+                        }}
+                      >
+                        <div className="w-20 h-20 mb-3 relative flex items-center justify-center">
+                          <Image
+                            src={`/industry-icons/${industry.name}.svg`}
+                            alt={industry.name}
+                            width={80}
+                            height={80}
+                            className="object-contain"
+                          />
+                        </div>
+                        <h3 style={{
+                          fontFamily: "Inter",
+                          fontSize: "13px",
+                          fontWeight: selectedCategory === industry.id ? 700 : 500,
+                          color: "#000000"
+                        }} className="text-center line-clamp-2">
+                          {industry.name}
+                        </h3>
+                      </Link>
+                    </div>
                   ))}
                 </div>
               </div>

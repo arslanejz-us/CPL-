@@ -8,17 +8,17 @@ import usps from "../../public/USPS.webp";
 import dhl from "../../public/DHL.webp";
 import fedex from "../../public/FedEx.webp";
 
-const COMPANY_LINKS = [
-  { label: "About Us", href: "#" },
+const COMPANY_LINKS: { label: string; href: string }[] = [
+  { label: "About Us", href: "/about-us" },
   { label: "Blog", href: "/blog" },
   { label: "Portfolio", href: "#" },
-  { label: "Industries", href: "#" },
+  { label: "Industries", href: "/industries" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Shipping Policy", href: "#" },
   { label: "Refund & Return Policy", href: "#" },
 ];
 
-const PRODUCTS_LINKS = [
+const PRODUCTS_LINKS: { label: string; href: string }[] = [
   { label: "Cosmetic Boxes", href: "#" },
   { label: "Soap Boxes", href: "#" },
   { label: "Candle Boxes", href: "#" },
@@ -27,7 +27,7 @@ const PRODUCTS_LINKS = [
   { label: "View All", href: "#" },
 ];
 
-const SHAPES_LINKS = [
+const SHAPES_LINKS: { label: string; href: string }[] = [
   { label: "Custom Display Boxes", href: "/product-category/custom-display-boxes" },
   { label: "Custom Mailer Boxes", href: "/product-category/custom-mailer-boxes" },
   { label: "Custom Tuck Boxes", href: "/product-category/custom-tuck-boxes" },
@@ -110,13 +110,20 @@ export default function Footer() {
             <div key={col.title}>
               <h3 className="text-sm font-bold text-brand-secondary mb-4">{col.title}</h3>
               <ul className="flex flex-col gap-2.5">
-                {col.links.map((link) => (
-                  <li key={typeof link === "string" ? link : link.label}>
-                    <Link href={typeof link === "string" ? "#" : link.href} className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
-                      {typeof link === "string" ? link : link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const label = typeof link === "string" ? link : link.label;
+                  const href = typeof link === "string" ? "#" : link.href;
+                  return (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="text-sm text-gray-500 hover:text-brand-primary transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -139,9 +146,9 @@ export default function Footer() {
                 Head Office: 1800 W Hawthorne Ln, West Chicago, IL 60185, United States Suite #105
               </li>
               <li>
-                <a href="#" className="underline hover:text-brand-primary transition-colors">
+                <Link href="/contact-us" className="underline hover:text-brand-primary transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

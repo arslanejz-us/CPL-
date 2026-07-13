@@ -1,0 +1,127 @@
+<h2 class="sr-only">A six-step responsive horizontal process timeline showing consultation, design, prototype, materials, production, and delivery, each with a custom package icon and a short description.</h2>
+<style>
+  .timeline-wrap { padding: 1.5rem 0.5rem; box-sizing: border-box; }
+  .timeline-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 2.5rem;
+  }
+  .step {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .icon-line-row { display: flex; align-items: center; justify-content: center; width: 100%; position: relative; }
+  .connector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 0;
+    border-top: 2px dotted #c3d4d6;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+  .step:last-child .connector { display: none; }
+  .icon-circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: #d6e6e8;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1; flex-shrink: 0;
+  }
+  .icon-circle img { width: 28px; height: 28px; object-fit: contain; }
+  .step-title {
+    margin-top: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #182F3B;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .step-desc {
+    margin-top: 0.4rem;
+    font-size: 14px;
+    line-height: 22px;
+    color: #182F3B;
+    text-align: center;
+    max-width: 150px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Tablet: 3 per row */
+  @media (max-width: 900px) {
+    .step { flex: 0 0 33.333%; max-width: 33.333%; }
+    /* hide connector on the last item of each row of 3 */
+    .step:nth-child(3n) .connector { display: none; }
+  }
+
+  /* Mobile: 2 per row */
+  @media (max-width: 560px) {
+    .step { flex: 0 0 50%; max-width: 50%; }
+    .step:nth-child(3n) .connector { display: block; }
+    .step:nth-child(2n) .connector { display: none; }
+    .step:last-child .connector { display: none; }
+    .step-title { font-size: 17px; }
+    .step-desc { font-size: 13px; line-height: 20px; }
+    .icon-circle { width: 56px; height: 56px; }
+    .icon-circle img { width: 24px; height: 24px; }
+  }
+</style>
+<div class="timeline-wrap">
+  <div class="timeline-row">
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="connector"></div>
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Consultation icon"></div>
+      </div>
+      <div class="step-title">Consultation</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="connector"></div>
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Design icon"></div>
+      </div>
+      <div class="step-title">Design</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="connector"></div>
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Prototype icon"></div>
+      </div>
+      <div class="step-title">Prototype</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="connector"></div>
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Materials icon"></div>
+      </div>
+      <div class="step-title">Materials</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="connector"></div>
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Production icon"></div>
+      </div>
+      <div class="step-title">Production</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+    <div class="step">
+      <div class="icon-line-row">
+        <div class="icon-circle"><img src="https://iboxfactory.com/wp-content/uploads/2026/06/Vector-2.svg" alt="Delivery icon"></div>
+      </div>
+      <div class="step-title">Delivery</div>
+      <div class="step-desc">We understand your brand, product &amp; goals in depth.</div>
+    </div>
+  </div>
+</div>

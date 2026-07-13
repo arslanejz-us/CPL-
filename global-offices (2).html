@@ -1,0 +1,155 @@
+<!-- ===================================================== -->
+<!--  GLOBAL OFFICES MAP  —  paste this block into your page -->
+<!--  Cards + pins + dotted L-connectors (matches design)   -->
+<!-- ===================================================== -->
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .gom-section{
+    position:relative; width:100%; max-width:1100px; margin:0 auto;
+    font-family:'Inter',sans-serif; box-sizing:border-box;
+  }
+  .gom-map{ width:100%; display:block; }
+
+  /* dotted connector lines drawn on an SVG layer over the map */
+  .gom-lines{ position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
+  .gom-lines path{ fill:none; stroke:#9fc3c1; stroke-width:1.6; stroke-dasharray:2 4; stroke-linecap:round; }
+
+  /* ---------- PINS ---------- */
+  .gom-pin{ position:absolute; transform:translate(-50%,-100%); z-index:3; }
+  .gom-pin svg{ display:block; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
+  .gom-p-hq  { top:39%; left:24.5%; }
+  .gom-p-usao{ top:50%; left:28.5%; }
+  .gom-p-uk  { top:53%; left:47.0%; }
+  .gom-p-cn  { top:30%; left:77.5%; }
+
+  /* ---------- CARDS ---------- */
+  .gom-card{
+    position:absolute; z-index:4; background:#fff; border-radius:14px;
+    box-shadow:0 12px 34px rgba(24,47,59,.12); padding:15px 17px;
+    width:244px; display:flex; gap:12px; box-sizing:border-box;
+  }
+  .gom-card .gom-ic{
+    flex-shrink:0; width:44px; height:44px; border-radius:50%;
+    background:#d6e6e8; display:flex; align-items:center; justify-content:center;
+  }
+  .gom-card .gom-ic svg{ width:22px; height:22px; }
+  .gom-card h3{ margin:0 0 6px; font-size:16px; font-weight:600; color:#182F3B; }
+  .gom-card p { margin:0 0 10px; font-size:12.5px; line-height:1.5; color:#5a6b73; }
+  .gom-card a { font-size:13px; font-weight:600; color:#2f6d6a; text-decoration:none; }
+  .gom-card a:hover{ text-decoration:underline; }
+
+  .gom-c-hq  { top:7%;  left:0%;   }
+  .gom-c-usao{ top:58%; left:13%;  }
+  .gom-c-uk  { top:56%; left:58%;  }
+  .gom-c-cn  { top:7%;  left:71%;  }
+
+  /* ================= RESPONSIVE ================= */
+
+  /* ---- TABLET: map hidden, cards in a 2-column grid ---- */
+  @media (max-width:1024px){
+    .gom-pin,.gom-lines{ display:none !important; }
+    .gom-map{ display:none; }                 /* hide map on tablet/mobile */
+    .gom-section{ padding:8px 0; }
+
+    .gom-cards-stack{
+      position:static;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      width:100%;
+    }
+    .gom-card{
+      position:static !important;
+      top:auto; left:auto;
+      width:100%;
+      margin:0;
+      box-shadow:0 6px 20px rgba(24,47,59,.10);
+    }
+  }
+
+  /* ---- MOBILE: single column, full-width cards ---- */
+  @media (max-width:600px){
+    .gom-cards-stack{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .gom-card{
+      padding:16px;
+      width:100%;
+    }
+    .gom-card h3{ font-size:17px; }
+    .gom-card p { font-size:13.5px; }
+    .gom-card a { font-size:14px; }
+    .gom-card .gom-ic{ width:46px; height:46px; }
+    .gom-card .gom-ic svg{ width:23px; height:23px; }
+  }
+</style>
+
+<div class="gom-section">
+
+  <!-- ===== MAP BACKGROUND ===== -->
+  <img class="gom-map"
+       src="https://iboxfactory.com/wp-content/uploads/2026/06/image-260.webp"
+       alt="World map showing our global office locations">
+
+  <!-- ===== DOTTED CONNECTOR LINES (percentage coords 0-100) ===== -->
+  <svg class="gom-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <!-- HQ: card bottom (~21,28) -> down -> across to pin (24.5,39) -->
+    <path d="M 21 28 L 21 39 L 24 39" vector-effect="non-scaling-stroke"/>
+    <!-- USA Office: pin (28.5,50) -> down to card top (28.5,58) -->
+    <path d="M 28.5 50 L 28.5 57" vector-effect="non-scaling-stroke"/>
+    <!-- UK: pin (47,53) -> across -> down to card (58,57) -->
+    <path d="M 47.5 53 L 58 53 L 58 56" vector-effect="non-scaling-stroke"/>
+    <!-- China: card bottom-left (~71,27) -> across -> up to pin (77.5,30) -->
+    <path d="M 71 27 L 77.5 27 L 77.5 29" vector-effect="non-scaling-stroke"/>
+  </svg>
+
+  <!-- ===== PINS ===== -->
+  <div class="gom-pin gom-p-hq"><svg width="26" height="34" viewBox="0 0 26 34"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.2 13 21 13 21s13-11.8 13-21C26 5.8 20.2 0 13 0z" fill="#2f6d6a"/><circle cx="13" cy="13" r="5" fill="#fff"/></svg></div>
+  <div class="gom-pin gom-p-usao"><svg width="26" height="34" viewBox="0 0 26 34"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.2 13 21 13 21s13-11.8 13-21C26 5.8 20.2 0 13 0z" fill="#2f6d6a"/><circle cx="13" cy="13" r="5" fill="#fff"/></svg></div>
+  <div class="gom-pin gom-p-uk"><svg width="26" height="34" viewBox="0 0 26 34"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.2 13 21 13 21s13-11.8 13-21C26 5.8 20.2 0 13 0z" fill="#2f6d6a"/><circle cx="13" cy="13" r="5" fill="#fff"/></svg></div>
+  <div class="gom-pin gom-p-cn"><svg width="26" height="34" viewBox="0 0 26 34"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.2 13 21 13 21s13-11.8 13-21C26 5.8 20.2 0 13 0z" fill="#2f6d6a"/><circle cx="13" cy="13" r="5" fill="#fff"/></svg></div>
+
+  <!-- ===== CARDS ===== -->
+  <div class="gom-cards-stack">
+
+    <div class="gom-card gom-c-hq">
+      <div class="gom-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6d6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+      <div>
+        <h3>USA - Headquarters</h3>
+        <p>1664 East Florence Blvd, Casa Grande, AZ 85122</p>
+        <a href="https://maps.google.com/?q=1664+East+Florence+Blvd+Casa+Grande+AZ+85122" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="gom-card gom-c-usao">
+      <div class="gom-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6d6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+      <div>
+        <h3>USA - Office</h3>
+        <p>110 S River Rd Suit 1, Des Plaines, IL 60016, United States</p>
+        <a href="https://maps.google.com/?q=110+S+River+Rd+Des+Plaines+IL+60016" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="gom-card gom-c-uk">
+      <div class="gom-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6d6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+      <div>
+        <h3>UK - Office</h3>
+        <p>29 Stafford Road, Wallington, Surrey, England, SM6 9AP</p>
+        <a href="https://maps.google.com/?q=29+Stafford+Road+Wallington+Surrey+SM6+9AP" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="gom-card gom-c-cn">
+      <div class="gom-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6d6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+      <div>
+        <h3>China - Office</h3>
+        <p>No. 3 Longxing Dongnan Yiheng Road, Guangdong, China</p>
+        <a href="https://maps.google.com/?q=Longxing+Dongnan+Yiheng+Road+Guangdong+China" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+
+  </div>
+</div>
