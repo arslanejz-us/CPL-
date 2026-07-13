@@ -142,9 +142,9 @@ export default function Footer() {
                 Head Office: 1800 W Hawthorne Ln, West Chicago, IL 60185, United States Suite #105
               </li>
               <li>
-                <a href="#" className="underline hover:text-brand-primary transition-colors">
+                <Link href="/contact-us" className="underline hover:text-brand-primary transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -6,7 +6,13 @@ import sampleKitImg from "../../public/sample-kit-image.png";
 const inputClass =
   "w-full bg-transparent border-b border-white/40 focus:border-white outline-none py-2 text-sm text-white placeholder-white/70 transition-colors";
 
-export default function SampleKitForm() {
+type SampleKitFormProps = {
+  showPricingButton?: boolean;
+};
+
+export default function SampleKitForm({
+  showPricingButton = false,
+}: SampleKitFormProps) {
   return (
     <section className="relative py-10 lg:py-12" id="sample-kit">
       {/* Full-section background image */}
@@ -46,9 +52,21 @@ export default function SampleKitForm() {
 
             <button
               type="submit"
-              className="justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 px-10 rounded-md transition-colors mt-2"
+              className={`justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 rounded-md transition-colors mt-2 whitespace-nowrap ${
+                showPricingButton ? "px-6 sm:col-span-2 min-w-[290px]" : "px-10"
+              }`}
             >
-              Submit
+              {showPricingButton ? (
+                <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                  Order my sample kit
+                  <span className="inline-flex items-center gap-1.5 font-normal">
+                    <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-white/70" />
+                    $19.9
+                  </span>
+                </span>
+              ) : (
+                "Submit"
+              )}
             </button>
           </form>
         </div>
