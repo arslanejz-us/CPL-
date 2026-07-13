@@ -14,12 +14,12 @@ export default function PrivacyPolicyPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-24 lg:py-32 bg-gradient-to-r from-[#00756E] to-[#007066]">
+        <section className="relative py-24 lg:py-32 bg-gradient-to-r from-[#00756E] to-[#007066] border-b border-gray-300">
           {/* Gradient Fade Bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+            <h1 className="text-white mb-4 font-medium" style={{ fontSize: '40px' }}>
               Privacy Policy
             </h1>
             <p className="text-lg text-gray-100 max-w-2xl mx-auto">
