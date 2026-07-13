@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllCategories } from "@/lib/categories";
 
 const FALLBACK_IMAGES = [
   "/Food-Packaging.png",
@@ -11,13 +10,21 @@ const FALLBACK_IMAGES = [
   "/Beverage-Packaging.png",
 ];
 
+const CATEGORIES = [
+  { id: "1", slug: "custom-tuck-boxes", name: "Custom Tuck Boxes", description: "Premium tuck boxes for retail packaging" },
+  { id: "2", slug: "custom-display-boxes", name: "Custom Display Boxes", description: "Eye-catching display boxes for retail" },
+  { id: "3", slug: "custom-mailer-boxes", name: "Custom Mailer Boxes", description: "Shipping boxes with style and protection" },
+  { id: "4", slug: "rigid-boxes", name: "Rigid Boxes", description: "Luxury packaging for premium brands" },
+  { id: "5", slug: "folding-cartons", name: "Folding Cartons", description: "Versatile cartons for all industries" },
+];
+
 export const metadata = {
   title: "Categories | Custom Packaging Lane",
   description: "Browse packaging categories for different industries",
 };
 
-export default async function CategoriesPage() {
-  const categories = await getAllCategories();
+export default function CategoriesPage() {
+  const categories = CATEGORIES;
 
   return (
     <>

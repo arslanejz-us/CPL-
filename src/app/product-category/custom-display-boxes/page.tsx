@@ -11,58 +11,58 @@ import SampleKitForm from "@/components/SampleKitForm";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Custom Tuck Boxes | Custom Packaging Lane",
-  description: "Premium custom tuck boxes designed for retail brands that care about unboxing experience.",
+  title: "Custom Display Boxes | Custom Packaging Lane",
+  description: "Premium custom display boxes designed for retail brands that showcase products with elegance and impact.",
 };
 
-export default function CustomTuckBoxesPage() {
+export default function CustomDisplayBoxesPage() {
   // Hero Section Data
   const heroData = {
-    breadcrumbLabel: "Custom Tuck Boxes",
-    title: "Custom Tuck Boxes",
-    description: "Premium custom tuck boxes designed for retail brands that care about unboxing experience. Perfect for packaging products with maximum impact.",
+    breadcrumbLabel: "Custom Display Boxes",
+    title: "Custom Display Boxes",
+    description: "Premium custom display boxes designed for retail brands that showcase products with elegance and impact. Perfect for creating memorable retail experiences.",
   };
 
   // Types Data - Product Cards
   const types = [
     {
       id: "1",
-      name: "Straight Tuck End Box",
+      name: "Countertop Display Box",
       image: "/client-say-one.png",
     },
     {
       id: "2",
-      name: "Reverse Tuck End Box",
+      name: "Shelf-Ready Display Box",
       image: "/client-say-two.png",
     },
     {
       id: "3",
-      name: "Snap Lock Bottom Box",
+      name: "Hanging Display Box",
       image: "/client-say-three.png",
     },
     {
       id: "4",
-      name: "Roll End Tuck Box",
+      name: "Tiered Display Box",
       image: "/client-say-one.png",
     },
     {
       id: "5",
-      name: "Auto Lock Box",
+      name: "Window Display Box",
       image: "/client-say-two.png",
     },
     {
       id: "6",
-      name: "Kraft Tuck Top Box",
+      name: "Floor Display Box",
       image: "/client-say-three.png",
     },
     {
       id: "7",
-      name: "Tuck Top Mailer Box",
+      name: "Magnetic Display Box",
       image: "/client-say-one.png",
     },
     {
       id: "8",
-      name: "Tuck Top Box",
+      name: "Rotating Display Box",
       image: "/client-say-two.png",
     },
   ];
@@ -103,7 +103,7 @@ export default function CustomTuckBoxesPage() {
       client_title: "Brand Director",
       client_company: "Premium Cosmetics Co.",
       rating: 5,
-      content: "The tuck boxes exceeded our expectations. The quality and attention to detail were outstanding.",
+      content: "The display boxes transformed our retail presence. Eye-catching design and exceptional quality!",
     },
     {
       id: "2",
@@ -111,7 +111,7 @@ export default function CustomTuckBoxesPage() {
       client_title: "Operations Manager",
       client_company: "Gourmet Foods Inc.",
       rating: 5,
-      content: "Fast turnaround time and excellent communication throughout the process.",
+      content: "Perfect for product showcase. Fast production and excellent customer support throughout.",
     },
     {
       id: "3",
@@ -119,7 +119,7 @@ export default function CustomTuckBoxesPage() {
       client_title: "E-commerce Manager",
       client_company: "Retail Brands Ltd.",
       rating: 5,
-      content: "Our customers love the unboxing experience. These boxes make a real difference.",
+      content: "These display boxes increased our in-store sales significantly. Highly recommended!",
     },
   ];
 
@@ -127,23 +127,23 @@ export default function CustomTuckBoxesPage() {
   const faqs = [
     {
       id: "1",
-      question: "What is the minimum order quantity?",
+      question: "What is the minimum order quantity for display boxes?",
       answer: "We accept orders from 100 units. Pricing is competitive even at lower volumes.",
     },
     {
       id: "2",
-      question: "How long does production take?",
+      question: "How long does production take for display boxes?",
       answer: "Standard production takes 5-7 business days. Rush options available upon request.",
     },
     {
       id: "3",
-      question: "Can you customize the design?",
-      answer: "Absolutely! We offer full customization for colors, printing, and dimensions.",
+      question: "Can you customize the design of display boxes?",
+      answer: "Absolutely! We offer full customization for colors, printing, dimensions, and structural design.",
     },
     {
       id: "4",
-      question: "Do you provide samples?",
-      answer: "Yes, we offer free sample kits so you can feel the quality before ordering.",
+      question: "Do you provide samples of display boxes?",
+      answer: "Yes, we offer free sample kits so you can feel the quality and design before ordering.",
     },
   ];
 
@@ -202,17 +202,17 @@ export default function CustomTuckBoxesPage() {
           </section>
         )}
 
-        {/* Types of Custom Tuck Boxes Section */}
+        {/* Types of Custom Display Boxes Section */}
         {types.length > 0 && (
           <section className="pt-16 lg:pt-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               {/* Section Header */}
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-medium text-black mb-4">
-                  Types of Custom Tuck Boxes
+                  Types of Custom Display Boxes
                 </h2>
                 <p className="text-base font-normal text-[#575757] max-w-2xl mx-auto">
-                  We offer a complete range of custom tuck packaging boxes to suit different product sizes, weight capacities, and branding needs.
+                  We offer a complete range of custom display boxes to showcase your products effectively and enhance retail visibility.
                 </p>
               </div>
 
@@ -266,10 +266,10 @@ export default function CustomTuckBoxesPage() {
           <div style={{ maxWidth: '1140px', margin: '0 auto', backgroundColor: '#F5F1EB', borderRadius: '14px', height: '500px', overflowY: 'auto', padding: '40px' }} className="mx-4 sm:mx-6 lg:mx-8">
             <div className="text-center mb-12">
               <h2 className="font-extrabold text-brand-secondary" style={{ fontSize: '22px' }}>
-                Premium-Grade Materials Tailored for Your Product Safety and Print Quality
+                Premium-Grade Materials for Eye-Catching Display Solutions
               </h2>
               <p className="text-gray-700 mt-4 text-left">
-                The right material defines your product's look, feel, and protection. It's the foundation of your unboxing experience. At Custom Lane Packaging, we offer a range of materials for custom tuck boxes that align with your brand's purpose and product needs.
+                The right material transforms your product display into a retail powerhouse. At Custom Lane Packaging, we offer premium materials for custom display boxes that captivate customers and drive sales.
               </p>
             </div>
 
@@ -277,34 +277,34 @@ export default function CustomTuckBoxesPage() {
               <div>
                 <h3 className="font-bold text-brand-secondary mb-3">Popular Material Options:</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
-                  <li><strong>Coated kraft</strong> - A strong, versatile, eco-printable material used across most tuck box styles</li>
-                  <li><strong>Paperboard</strong> - Lightweight yet sturdy, made from recycled or virgin pulp</li>
-                  <li><strong>Specialty Papers</strong> - Premium finishes like kraft and linen for luxury appeal and branding</li>
-                  <li><strong>Corrugated paper</strong> - Is durable and protective, ideal for heavy-duty or shipping packaging</li>
-                  <li><strong>Rigid Chipboard</strong> - Offers superior protection and a luxurious feel, ideal for premium products</li>
-                  <li><strong>Textured Papers</strong> - Offer linen, felt, or lush finishes for luxury tuck boxes</li>
+                  <li><strong>Coated kraft</strong> - Durable and eco-friendly, perfect for sustainable display solutions</li>
+                  <li><strong>White paperboard</strong> - Premium finish for vibrant, eye-catching prints</li>
+                  <li><strong>Specialty Papers</strong> - Textured finishes for luxury product positioning</li>
+                  <li><strong>Corrugated cardboard</strong> - Strong and reliable for heavy-duty displays</li>
+                  <li><strong>Rigid board</strong> - Premium structural integrity for impressive presentations</li>
+                  <li><strong>Metallic finishes</strong> - High-end options for premium brand showcase</li>
                 </ul>
               </div>
             </div>
 
             <div className="text-center mb-12">
               <h2 className="font-extrabold text-brand-secondary" style={{ fontSize: '22px' }}>
-                Premium-Grade Materials Tailored for Your Product Safety and Print Quality
+                Premium-Grade Materials for Eye-Catching Display Solutions
               </h2>
               <p className="text-gray-700 mt-4 text-left">
-                The right material defines your product's look, feel, and protection. It's the foundation of your unboxing experience. At Custom Lane Packaging, we offer a range of materials for custom tuck boxes that align with your brand's purpose and product needs.
+                The right material transforms your product display into a retail powerhouse. At Custom Lane Packaging, we offer premium materials for custom display boxes that captivate customers and drive sales.
               </p>
             </div>
             <div className="space-y-6">
               <div>
                 <h3 className="font-bold text-brand-secondary mb-3">Popular Material Options:</h3>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
-                  <li><strong>Coated kraft</strong> - A strong, versatile, eco-printable material used across most tuck box styles</li>
-                  <li><strong>Paperboard</strong> - Lightweight yet sturdy, made from recycled or virgin pulp</li>
-                  <li><strong>Specialty Papers</strong> - Premium finishes like kraft and linen for luxury appeal and branding</li>
-                  <li><strong>Corrugated paper</strong> - Is durable and protective, ideal for heavy-duty or shipping packaging</li>
-                  <li><strong>Rigid Chipboard</strong> - Offers superior protection and a luxurious feel, ideal for premium products</li>
-                  <li><strong>Textured Papers</strong> - Offer linen, felt, or lush finishes for luxury tuck boxes</li>
+                  <li><strong>Coated kraft</strong> - Durable and eco-friendly, perfect for sustainable display solutions</li>
+                  <li><strong>White paperboard</strong> - Premium finish for vibrant, eye-catching prints</li>
+                  <li><strong>Specialty Papers</strong> - Textured finishes for luxury product positioning</li>
+                  <li><strong>Corrugated cardboard</strong> - Strong and reliable for heavy-duty displays</li>
+                  <li><strong>Rigid board</strong> - Premium structural integrity for impressive presentations</li>
+                  <li><strong>Metallic finishes</strong> - High-end options for premium brand showcase</li>
                 </ul>
               </div>
             </div>

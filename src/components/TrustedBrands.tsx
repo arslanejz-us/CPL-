@@ -21,7 +21,7 @@ export default function TrustedBrands({ brands }: { brands?: Brand[] }) {
   const loop = [...brandsList, ...brandsList, ...brandsList];
 
   return (
-    <section className="relative flex-shrink-0 w-full bg-white py-5 overflow-hidden">
+    <section className="relative flex-shrink-0 w-full bg-white py-10 overflow-hidden">
       {/* Edge fades */}
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

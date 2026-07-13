@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 
 const inputClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none rounded-full py-3 px-5 text-sm transition-colors placeholder-gray-400";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-3 px-4 text-sm transition-colors placeholder-gray-400 rounded-[10px]";
 
 const textareaClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none rounded-full py-3 px-5 text-sm transition-colors resize-none placeholder-gray-400";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-3 px-4 text-sm transition-colors resize-none placeholder-gray-400 rounded-[10px]";
 
 type StaticProductHeroProps = {
   breadcrumbLabel: string;
@@ -22,65 +22,63 @@ export default function StaticProductHero({
 }: StaticProductHeroProps) {
   return (
     <section
-      className="relative py-16 lg:py-24 min-h-screen flex items-center overflow-hidden"
+      className="relative w-full"
       style={{
-        backgroundImage: 'url(/Product-categories/Product-categories-background.webp)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'right center',
+        backgroundColor: '#F7F7F7',
+        height: '522px',
       }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Content */}
-          <div className="flex flex-col gap-8">
-            {/* Back Link */}
-            <Link
-              href={backLink}
-              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary-dark text-sm font-semibold w-fit"
-            >
-              <ChevronLeft size={16} />
-              Back to Category
-            </Link>
-
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <Link href="/" className="text-[#00756E] text-sm font-normal hover:underline">
-                Home
-              </Link>
-              <span className="text-gray-400">/</span>
-              <Link
-                href="/categories"
-                className="text-[#00756E] text-sm font-normal hover:underline"
-              >
-                Categories
-              </Link>
-              <span className="text-gray-400">/</span>
-              <Link
-                href={backLink}
-                className="text-[#00756E] text-sm font-normal hover:underline"
-              >
-                {breadcrumbLabel.split(" ")[0]}
-              </Link>
-              <span className="text-gray-400">/</span>
-              <span className="text-[#00756E] text-sm font-normal">{breadcrumbLabel}</span>
+      {/* Full width content container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
+        {/* 2 Column Grid: Left for product image, Right for content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full">
+          {/* Left Column: Product Image */}
+          <div className="flex items-center justify-center py-8 h-full">
+            <div className="relative w-full h-full">
+              <Image
+                src="/client-say-one.png"
+                alt="Product"
+                fill
+                className="object-cover rounded-[15px]"
+              />
             </div>
+          </div>
 
-            {/* Title */}
-            <div>
-              <h1 className="text-4xl font-medium text-black leading-tight">{title}</h1>
-              <p className="text-base font-normal text-[#575757] mt-4 leading-relaxed max-w-md">
+          {/* Right Column: All Content - 100% layout */}
+          <div className="flex flex-col gap-3 justify-between py-8 pb-16 h-full">
+            {/* Content Section with padding */}
+            <div className="space-y-1">
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-2 flex-wrap pt-8">
+                <Link href="/" className="text-[#00756E] text-sm font-normal hover:underline">
+                  Home
+                </Link>
+                <span className="text-gray-400">/</span>
+                <Link
+                  href={backLink}
+                  className="text-[#00756E] text-sm font-normal hover:underline"
+                >
+                  {breadcrumbLabel.split(" ")[0]}
+                </Link>
+                <span className="text-gray-400">/</span>
+                <span className="text-[#00756E] text-sm font-normal">{breadcrumbLabel}</span>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-4xl font-bold text-black leading-tight">
+                {title}
+              </h1>
+
+              {/* Description */}
+              <p className="text-sm font-normal text-[#575757] leading-relaxed max-w-md">
                 {description}
               </p>
             </div>
 
             {/* Quote Form */}
-            <form className="flex flex-col gap-4 mt-4">
+            <form className="flex flex-col gap-3 mt-2">
               {/* Row 1: Name and Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <input
                   type="text"
                   placeholder="Name"
@@ -96,7 +94,7 @@ export default function StaticProductHero({
               </div>
 
               {/* Row 2: Phone and Quantity */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <input
                   type="tel"
                   placeholder="Phone"
@@ -112,24 +110,22 @@ export default function StaticProductHero({
 
               {/* Row 3: Product Packaging Details */}
               <textarea
-                placeholder="Product Packaging Details"
-                rows={4}
+                placeholder="Provide Packaging Details"
+                rows={2}
                 className={textareaClass}
               />
 
               {/* Get a Quote Button */}
-              <div className="flex justify-end pt-2">
+              <div className="flex justify-start pt-1">
                 <button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-colors"
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-12 rounded-full transition-colors"
                 >
                   Get a Quote
                 </button>
               </div>
             </form>
           </div>
-
-          {/* Right: Background image fills the space */}
         </div>
       </div>
     </section>

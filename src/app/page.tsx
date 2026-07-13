@@ -9,7 +9,6 @@ import PackagingStyles from "@/components/PackagingStyles";
 import QuoteForm from "@/components/QuoteForm";
 import Sustainability from "@/components/Sustainability";
 import LiveBoxBuilder from "@/components/LiveBoxBuilder";
-import Testimonials from "@/components/Testimonials";
 import CompanyCTA from "@/components/CompanyCTA";
 import FAQ from "@/components/FAQ";
 import SampleKitForm from "@/components/SampleKitForm";
@@ -39,7 +38,6 @@ export default function Home() {
         <QuoteForm />
         <Sustainability />
         <LiveBoxBuilder />
-        <Testimonials />
         <CompanyCTA />
         <FAQ />
         <SampleKitForm />

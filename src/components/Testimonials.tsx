@@ -50,11 +50,28 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
   const LOOP = [...reviews, ...reviews, ...reviews];
 
   // Start in the middle copy so there is room to scroll either way.
+  // Offset to show partial card on left edge
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollLeft = el.scrollWidth / 3;
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const offset = card ? (card.offsetWidth + 20) * 0.35 : 100;
+    el.scrollLeft = el.scrollWidth / 3 - offset;
   }, [reviews.length]);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const interval = setInterval(() => {
+      const card = el.querySelector<HTMLElement>("[data-card]");
+      const amount = card ? card.offsetWidth + 20 : el.clientWidth / 2;
+      el.scrollBy({ left: amount, behavior: "smooth" });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // When a clone boundary is reached, jump silently to the matching
   // position in the middle copy to fake an infinite loop.
@@ -78,9 +95,10 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
   };
 
   return (
-    <section className="bg-white py-16 border-t-2 border-brand-primary" id="testimonials">
-      <div className="max-w-7xl mx-auto pl-4 sm:pl-6 lg:pl-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 pr-4 sm:pr-6 lg:pr-8">
+    <section className="bg-white py-16" id="testimonials">
+      {/* Header - centered with max-width */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-secondary tracking-tight">
             What Our Clients Say
           </h2>
@@ -88,71 +106,61 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
             Loved by brands and individuals across the globe
           </p>
         </div>
+      </div>
 
-        <div className="relative">
-          {/* Arrows — centered on the image (image is h-96 = 384px) */}
-          <button
-            onClick={() => slide("left")}
-            className="absolute left-2 top-48 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border-2 border-brand-primary shadow-md flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => slide("right")}
-            className="absolute right-2 top-48 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border-2 border-brand-primary shadow-md flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
+      {/* Slider - full width edge-to-edge */}
+      <div className="relative">
           <div
             ref={scrollRef}
             onScroll={handleScroll}
             className="flex gap-5 overflow-x-auto no-scrollbar pb-2"
           >
-            {LOOP.map((r, i) => (
-              <div
-                key={`${r.client_name}-${i}`}
-                data-card
-                className="w-[78%] sm:w-[45%] lg:w-[27%] flex-shrink-0"
-              >
-                <div className="relative h-96 w-full rounded-2xl overflow-hidden">
-                  {r.client_image ? (
-                    <Image
-                      src={typeof r.client_image === 'string' ? r.client_image : r.client_image}
-                      alt={r.client_name || "Client"}
-                      fill
-                      className="object-cover object-center"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400">No Image</span>
+            {LOOP.map((r, i) => {
+              const colors = ["border-blue-400", "border-green-400", "border-purple-400", "border-orange-400"];
+              const borderColor = colors[i % colors.length];
+
+              return (
+                <div
+                  key={`${r.client_name}-${i}`}
+                  data-card
+                  className="w-[78%] sm:w-[45%] lg:w-[27%] flex-shrink-0"
+                >
+                  <div className={`p-6 rounded-[14px] border-2 ${borderColor} bg-white h-full flex flex-col justify-between`}>
+                    {/* Quote Text */}
+                    <p className="font-normal text-sm leading-relaxed text-gray-700 mb-4">
+                      "{r.content}"
+                    </p>
+
+                    {/* Client Info */}
+                    <div className="flex items-center gap-3">
+                      {r.client_image ? (
+                        <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                          <Image
+                            src={typeof r.client_image === 'string' ? r.client_image : r.client_image}
+                            alt={r.client_name || "Client"}
+                            fill
+                            className="object-cover object-center"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                          <span className="text-gray-400 text-xs">No Image</span>
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="font-semibold text-sm text-gray-900">
+                          {r.client_name}
+                        </h3>
+                        {r.client_company && (
+                          <p className="text-xs text-gray-500">{r.client_company}</p>
+                        )}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
-                <div className="mt-4">
-                  {r.rating && (
-                    <div className="flex gap-1 mb-2">
-                      {Array.from({ length: r.rating }).map((_, idx) => (
-                        <Star key={idx} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  )}
-                  <h3 className="font-semibold text-sm text-brand-secondary">
-                    {r.client_name}
-                  </h3>
-                  {r.client_company && (
-                    <p className="text-xs text-gray-500">{r.client_company}</p>
-                  )}
-                </div>
-                <p className="font-normal text-sm mt-2 leading-relaxed text-gray-600">
-                  "{r.content}"
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
       </div>
     </section>
   );
