@@ -195,7 +195,7 @@ export default function Footer() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/website-logos/Website-Logo.svg"
+              src="/Website-logos/Website-Logo.svg"
               alt="Custom Packaging Lane"
               width={140}
               height={32}

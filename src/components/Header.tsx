@@ -17,7 +17,7 @@ function Logo() {
   return (
     <Link href="/" className="flex items-center flex-shrink-0">
       <Image
-        src="/website-logos/Website-Logo.svg"
+        src="/Website-logos/Website-Logo.svg"
         alt="Custom Packaging Lane"
         width={180}
         height={40}
