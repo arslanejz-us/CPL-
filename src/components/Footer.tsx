@@ -8,40 +8,46 @@ import usps from "../../public/USPS.webp";
 import dhl from "../../public/DHL.webp";
 import fedex from "../../public/FedEx.webp";
 
+const COMPANY_LINKS = [
+  { label: "About Us", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Portfolio", href: "#" },
+  { label: "Industries", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Shipping Policy", href: "#" },
+  { label: "Refund & Return Policy", href: "#" },
+];
+
+const PRODUCTS_LINKS = [
+  { label: "Cosmetic Boxes", href: "#" },
+  { label: "Soap Boxes", href: "#" },
+  { label: "Candle Boxes", href: "#" },
+  { label: "CBD Boxes", href: "#" },
+  { label: "Retail Boxes", href: "#" },
+  { label: "View All", href: "#" },
+];
+
+const SHAPES_LINKS = [
+  { label: "Custom Display Boxes", href: "/product-category/custom-display-boxes" },
+  { label: "Custom Mailer Boxes", href: "/product-category/custom-mailer-boxes" },
+  { label: "Custom Tuck Boxes", href: "/product-category/custom-tuck-boxes" },
+  { label: "Custom Rigid Boxes", href: "/product-category/rigid-boxes" },
+  { label: "Window Boxes", href: "#" },
+  { label: "View All", href: "#" },
+];
+
 const COLUMNS = [
   {
     title: "Company",
-    links: [
-      "About Us",
-      "Blog",
-      "Portfolio",
-      "Industries",
-      "Privacy Policy",
-      "Shipping Policy",
-      "Refund & Return Policy",
-    ],
+    links: COMPANY_LINKS,
   },
   {
     title: "Products",
-    links: [
-      "Cosmetic Boxes",
-      "Soap Boxes",
-      "Candle Boxes",
-      "CBD Boxes",
-      "Retail Boxes",
-      "View All",
-    ],
+    links: PRODUCTS_LINKS,
   },
   {
     title: "Shapes & Styles",
-    links: [
-      "Custom Display Boxes",
-      "Custom Mailer Boxes",
-      "Custom Tuck Boxes",
-      "Custom Rigid Boxes",
-      "Window Boxes",
-      "View All",
-    ],
+    links: SHAPES_LINKS,
   },
 ];
 
@@ -105,10 +111,10 @@ export default function Footer() {
               <h3 className="text-sm font-bold text-brand-secondary mb-4">{col.title}</h3>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
-                      {link}
-                    </a>
+                  <li key={typeof link === "string" ? link : link.label}>
+                    <Link href={typeof link === "string" ? "#" : link.href} className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
+                      {typeof link === "string" ? link : link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
