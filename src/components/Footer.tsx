@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Leaf } from "lucide-react";
 import googleRating from "../../public/google-rating.png";
 import trustpilot from "../../public/trustpilot.webp";
 import womenOwned from "../../public/womenowned.webp";
