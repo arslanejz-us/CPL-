@@ -14,12 +14,12 @@ export default function PrivacyPolicyPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-24 lg:py-32 bg-[#F7F7F7]">
+        <section className="py-24 lg:py-32 bg-gradient-to-r from-[#00756E] to-[#007066]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-brand-secondary mb-4">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
               Privacy Policy
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-100 max-w-2xl mx-auto">
               How we collect, use, and protect your information
             </p>
           </div>
