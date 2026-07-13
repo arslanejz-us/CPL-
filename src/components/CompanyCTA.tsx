@@ -8,7 +8,7 @@ export default function CompanyCTA() {
           Know More About Us
         </h2>
         <Link
-          href="#sustainability"
+          href="/about-us"
           className="bg-white text-brand-primary font-semibold py-3 px-7 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap"
         >
           See Company Profile

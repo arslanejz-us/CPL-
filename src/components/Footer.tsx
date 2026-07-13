@@ -8,18 +8,20 @@ import usps from "../../public/USPS.webp";
 import dhl from "../../public/DHL.webp";
 import fedex from "../../public/FedEx.webp";
 
+const COMPANY_LINKS: { label: string; href: string }[] = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Blog", href: "/blog" },
+  { label: "Portfolio", href: "#" },
+  { label: "Industries", href: "/industries" },
+  { label: "Privacy Policy", href: "#" },
+  { label: "Shipping Policy", href: "#" },
+  { label: "Refund & Return Policy", href: "#" },
+];
+
 const COLUMNS = [
   {
     title: "Company",
-    links: [
-      "About Us",
-      "Blog",
-      "Portfolio",
-      "Industries",
-      "Privacy Policy",
-      "Shipping Policy",
-      "Refund & Return Policy",
-    ],
+    links: COMPANY_LINKS,
   },
   {
     title: "Products",
@@ -104,13 +106,20 @@ export default function Footer() {
             <div key={col.title}>
               <h3 className="text-sm font-bold text-brand-secondary mb-4">{col.title}</h3>
               <ul className="flex flex-col gap-2.5">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const label = typeof link === "string" ? link : link.label;
+                  const href = typeof link === "string" ? "#" : link.href;
+                  return (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="text-sm text-gray-500 hover:text-brand-primary transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
