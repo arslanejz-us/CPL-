@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-24 lg:py-32 bg-gradient-to-r from-[#00756E] to-[#007066] border-b border-gray-300">
+        <section className="relative py-24 lg:py-32 bg-gradient-to-b from-[#00756E] to-[#00A59A] border-b border-gray-300">
           {/* Gradient Fade Bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white to-transparent pointer-events-none" style={{ background: 'linear-gradient(to top, white, rgba(255,255,255,0.7), rgba(0,117,110,0.3), transparent)' }}></div>
 
