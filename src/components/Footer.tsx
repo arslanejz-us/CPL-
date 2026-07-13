@@ -166,6 +166,8 @@ export default function Footer() {
                   key={b.alt}
                   src={b.src}
                   alt={b.alt}
+                  width={200}
+                  height={48}
                   className="h-12 w-auto object-contain"
                 />
               ))}
@@ -183,6 +185,8 @@ export default function Footer() {
                   key={l.alt}
                   src={l.src}
                   alt={l.alt}
+                  width={200}
+                  height={48}
                   className={l.className}
                 />
               ))}
