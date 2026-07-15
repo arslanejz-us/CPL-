@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const inputClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-3 px-4 text-sm transition-colors placeholder-gray-400 rounded-[10px]";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors placeholder-gray-400 rounded-[10px]";
 
 const textareaClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-3 px-4 text-sm transition-colors resize-none placeholder-gray-400 rounded-[10px]";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors resize-none placeholder-gray-400 rounded-[10px]";
 
 type StaticCategoryHeroProps = {
   breadcrumbLabel: string;
@@ -19,50 +19,51 @@ export default function StaticCategoryHero({
 }: StaticCategoryHeroProps) {
   return (
     <section
-      className="relative w-full"
+      className="relative w-full py-8 sm:py-12 lg:py-0"
       style={{
         backgroundImage: 'url(/Product-categories/Product-categories-background.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: '522px',
+        minHeight: 'auto',
+        height: 'auto',
       }}
     >
       {/* Full width content container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
         {/* 2 Column Grid: Left empty (for background), Right for content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 h-full items-center py-8 lg:py-0">
           {/* Left Column: Empty - background image shows here */}
           <div></div>
 
           {/* Right Column: All Content - 100% layout */}
-          <div className="flex flex-col gap-3 justify-center py-8">
+          <div className="flex flex-col gap-2 sm:gap-3 justify-center py-4 sm:py-8 lg:py-0">
             {/* Content Section with padding */}
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               {/* Breadcrumb */}
               <div className="flex items-center gap-2 flex-wrap">
-                <Link href="/" className="text-[#00756E] text-sm font-normal hover:underline">
+                <Link href="/" className="text-[#00756E] text-xs sm:text-sm font-normal hover:underline">
                   Home
                 </Link>
-                <span className="text-gray-400">/</span>
-                <span className="text-[#00756E] text-sm font-normal">{breadcrumbLabel}</span>
+                <span className="text-gray-400 text-xs sm:text-sm">/</span>
+                <span className="text-[#00756E] text-xs sm:text-sm font-normal">{breadcrumbLabel}</span>
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl font-bold text-black leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black leading-tight" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                 {title}
               </h1>
 
               {/* Description */}
-              <p className="text-sm font-normal text-[#575757] leading-relaxed max-w-md">
+              <p className="text-xs sm:text-sm font-normal text-[#575757] leading-relaxed max-w-md" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                 {description}
               </p>
             </div>
 
             {/* Quote Form - NO Card Background */}
-            <form className="flex flex-col gap-3 mt-2">
+            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4">
               {/* Row 1: Name and Email */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
                   type="text"
                   placeholder="Name"
@@ -78,7 +79,7 @@ export default function StaticCategoryHero({
               </div>
 
               {/* Row 2: Phone and Quantity */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
                   type="tel"
                   placeholder="Phone"
@@ -103,7 +104,8 @@ export default function StaticCategoryHero({
               <div className="flex justify-start pt-1">
                 <button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-12 rounded-full transition-colors"
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap"
+                  style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                 >
                   Get a Quote
                 </button>

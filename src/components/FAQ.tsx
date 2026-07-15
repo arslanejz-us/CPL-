@@ -43,17 +43,17 @@ export default function FAQ({ faqs }: { faqs?: FAQ[] }) {
   const faqList = faqs && faqs.length > 0 ? faqs : DEFAULT_FAQS;
 
   return (
-    <section className="bg-white py-20" id="faq">
+    <section className="bg-white py-12 sm:py-16 lg:py-20" id="faq">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-secondary tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-secondary tracking-tight leading-tight">
               Frequently Asked
               <br />
               Questions
             </h2>
-            <p className="text-gray-500 text-sm mt-4">
+            <p className="text-gray-500 text-xs sm:text-sm mt-4">
               Find all the urgent questions you may have.
             </p>
           </div>

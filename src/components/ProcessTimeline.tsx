@@ -10,29 +10,29 @@ const STEPS = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="bg-white py-20 relative overflow-hidden" id="process">
+    <section className="bg-white py-12 sm:py-16 lg:py-20 relative overflow-hidden" id="process">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-secondary tracking-tight">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-secondary tracking-tight">
             5-Step Ordering Process
           </h2>
-          <p className="text-gray-500 mt-3 text-sm">
+          <p className="text-gray-500 mt-3 text-xs sm:text-sm">
             We provide the simplest 5-step ordering process to order custom packaging.
           </p>
         </div>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-4">
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-4">
           {/* Connecting line — passes through the vertical center of the circles, edge-to-edge */}
           <div className="hidden lg:block absolute top-6 left-1/2 -translate-x-1/2 w-screen h-0.5 bg-brand-primary/20" />
 
           {STEPS.map((step) => (
             <div key={step.num} className="relative flex flex-col items-start text-left">
-              <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-md shadow-brand-primary/20 z-10">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-md shadow-brand-primary/20 z-10">
                 <step.Icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <p className="font-montserrat font-bold text-[25px] text-brand-primary mt-3 mb-2">{step.num}</p>
-              <h3 className="font-montserrat font-bold text-[16px] text-brand-secondary">{step.title}</h3>
-              <p className="font-montserrat font-normal text-[12px] leading-[16px] mt-1 max-w-[180px]" style={{ color: "#575757" }}>{step.desc}</p>
+              <p className="font-montserrat font-bold text-[20px] sm:text-[25px] text-brand-primary mt-2 sm:mt-3 mb-1 sm:mb-2">{step.num}</p>
+              <h3 className="font-montserrat font-bold text-[14px] sm:text-[16px] text-brand-secondary">{step.title}</h3>
+              <p className="font-montserrat font-normal text-[11px] sm:text-[12px] leading-[15px] sm:leading-[16px] mt-1 max-w-[180px]" style={{ color: "#575757" }}>{step.desc}</p>
             </div>
           ))}
         </div>

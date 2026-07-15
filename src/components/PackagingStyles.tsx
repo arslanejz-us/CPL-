@@ -50,13 +50,13 @@ export default function PackagingStyles() {
   };
 
   return (
-    <section className="bg-white pt-10 pb-20" id="styles">
+    <section className="bg-white pt-8 sm:pt-10 pb-12 sm:pb-20" id="styles">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-secondary tracking-tight">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-secondary tracking-tight">
             Explore Our Custom Box Packaging Styles
           </h2>
-          <p className="text-gray-500 mt-3 text-sm">
+          <p className="text-gray-500 mt-3 text-xs sm:text-sm">
             From tuck-end to rigid and magnetic closure boxes, each design is
             backed by precision printing and quality assurance.
           </p>

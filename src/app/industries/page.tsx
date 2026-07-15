@@ -58,7 +58,7 @@ export default function IndustriesPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden">
+        <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 overflow-hidden">
           <Image
             src={heroBg}
             alt=""
@@ -67,32 +67,32 @@ export default function IndustriesPage() {
             priority
           />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-[40px] font-medium font-montserrat text-brand-secondary mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-medium font-montserrat text-brand-secondary mb-3 sm:mb-4">
               Industries
             </h1>
-            <p className="text-base text-[#575757] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-[#575757] max-w-2xl mx-auto leading-relaxed">
               Custom Packaging Lane crafts premium packaging solutions trusted by 3,000+ businesses worldwide.
             </p>
           </div>
         </section>
 
         {/* Main Content with Sidebar */}
-        <section className="py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-16 lg:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-8">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
               {/* Sidebar - Static (no scroll, no sticky) */}
-              <div className="hidden lg:block w-56 flex-shrink-0">
+              <div className="w-full lg:w-56 lg:flex-shrink-0">
                 <div className="bg-white">
-                  <h3 style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "12px", color: "#00756E", borderBottom: "1px solid #00756E", paddingBottom: "8px" }} className="mb-4 font-medium">
+                  <h3 style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "11px", color: "#00756E", borderBottom: "1px solid #00756E", paddingBottom: "8px" }} className="mb-3 sm:mb-4 font-medium">
                     Industries ({INDUSTRIES.length})
                   </h3>
-                  <nav className="space-y-2">
+                  <nav className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-2 lg:space-y-2">
                     {INDUSTRIES.map((industry) => (
                       <button
                         key={industry.id}
                         onClick={() => handleIndustryClick(industry.id)}
-                        style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "12px", color: "#000000" }}
-                        className="block w-full text-left hover:text-brand-primary transition-colors"
+                        style={{ fontFamily: "Inter", fontWeight: 400, fontSize: "11px", color: "#000000" }}
+                        className="block text-left hover:text-brand-primary transition-colors py-1 lg:py-0"
                       >
                         {industry.name}
                       </button>
@@ -102,8 +102,8 @@ export default function IndustriesPage() {
               </div>
 
               {/* Industries Grid - Centered */}
-              <div className="flex-1">
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 justify-items-stretch" style={{ gap: "20px" }}>
+              <div className="flex-1 w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 justify-items-stretch gap-3 sm:gap-5" style={{ gap: "16px" }}>
                   {INDUSTRIES.map((industry) => (
                     <div
                       key={industry.id}
@@ -111,28 +111,29 @@ export default function IndustriesPage() {
                     >
                       <Link
                         href={`/industries/${industry.id}`}
-                        className={`w-full flex flex-col items-center justify-center p-4 rounded-lg hover:shadow-lg transition-all ${
+                        className={`w-full flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg hover:shadow-lg transition-all ${
                           selectedCategory === industry.id
                             ? "shadow-lg ring-2 ring-brand-primary"
                             : "hover:shadow-md"
                         }`}
                         style={{
                           backgroundColor: "#F7F7F7",
-                          height: "281.7px"
+                          minHeight: "140px",
+                          height: "auto"
                         }}
                       >
-                        <div className="w-20 h-20 mb-3 relative flex items-center justify-center">
+                        <div className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 mb-1 sm:mb-2 relative flex items-center justify-center flex-shrink-0">
                           <Image
                             src={`/industry-icons/${industry.name}.svg`}
                             alt={industry.name}
                             width={80}
                             height={80}
-                            className="object-contain"
+                            className="object-contain w-full h-full"
                           />
                         </div>
                         <h3 style={{
                           fontFamily: "Inter",
-                          fontSize: "13px",
+                          fontSize: selectedCategory === industry.id ? "12px" : "11px",
                           fontWeight: selectedCategory === industry.id ? 700 : 500,
                           color: "#000000"
                         }} className="text-center line-clamp-2">

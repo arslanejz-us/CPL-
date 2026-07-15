@@ -6,12 +6,12 @@ import mission4 from "../../../public/about-us/mission-4.jpg";
 
 export default function MissionVision() {
   return (
-    <section className="py-14 lg:py-20 bg-brand-light">
+    <section className="py-8 sm:py-14 lg:py-20 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
           {/* Image collage */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="col-span-2 relative h-48 sm:h-56 rounded-lg overflow-hidden">
+            <div className="col-span-2 relative h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
               <Image
                 src={mission1}
                 alt="Custom packaging showcase"
@@ -47,10 +47,10 @@ export default function MissionVision() {
 
           {/* Text content */}
           <div>
-            <h2 className="text-3xl sm:text-[40px] font-medium font-montserrat text-brand-secondary mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium font-montserrat text-brand-secondary mb-4 sm:mb-6">
               Our Mission &amp; Vision
             </h2>
-            <p className="text-base text-[#575757] leading-[29px]">
+            <p className="text-sm sm:text-base text-[#575757] leading-[25px] sm:leading-[29px]">
               At Custom Packaging Lane, our mission is to revolutionize the
               packaging industry by providing innovative and personalized
               solutions for businesses. We are committed to using sustainable

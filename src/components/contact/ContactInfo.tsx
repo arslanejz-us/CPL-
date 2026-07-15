@@ -37,17 +37,17 @@ const CARDS: ContactCard[] = [
 
 export default function ContactInfo() {
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-8 sm:py-12 lg:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-start">
           <div>
-            <p className="text-sm font-semibold font-montserrat text-brand-primary mb-3">
+            <p className="text-xs sm:text-sm font-semibold font-montserrat text-brand-primary mb-2 sm:mb-3">
               Contact Us
             </p>
-            <h2 className="text-3xl sm:text-[36px] font-medium font-montserrat text-brand-secondary leading-tight mb-5">
+            <h2 className="text-xl sm:text-2xl lg:text-[36px] font-medium font-montserrat text-brand-secondary leading-tight mb-4 sm:mb-5">
               Need Packaging for Your Business? Let&apos;s Talk.
             </h2>
-            <p className="text-base text-[#575757] leading-relaxed max-w-[477px] mb-8">
+            <p className="text-sm sm:text-base text-[#575757] leading-relaxed max-w-[477px] mb-6 sm:mb-8">
               Connect with our packaging experts to discuss your needs, explore
               custom options and get clear answers before you begin.
             </p>

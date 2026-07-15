@@ -171,13 +171,13 @@ export default function CustomTuckBoxesPage() {
 
         {/* Feature Blocks Section */}
         {featureBlocks.length > 0 && (
-          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '30px', paddingBottom: '30px' }}>
+          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '20px', paddingBottom: '20px' }}>
             <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1140px' }}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 {featureBlocks.map((block) => (
-                  <div key={block.id} className="flex gap-4">
+                  <div key={block.id} className="flex gap-3 sm:gap-4">
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-10 h-10">
+                    <div className="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10">
                       <Image
                         src={block.icon}
                         alt={block.title}
@@ -188,10 +188,10 @@ export default function CustomTuckBoxesPage() {
                     </div>
                     {/* Title and Description */}
                     <div className="flex-1">
-                      <h3 className="text-sm font-bold text-[#05766E] leading-4 mb-1 whitespace-pre-line">
+                      <h3 className="text-xs sm:text-sm font-bold text-[#05766E] leading-3 sm:leading-4 mb-0.5 sm:mb-1 whitespace-pre-line">
                         {block.title}
                       </h3>
-                      <p className="text-xs font-normal text-[#575757] whitespace-pre-line">
+                      <p className="text-[10px] sm:text-xs font-normal text-[#575757] whitespace-pre-line">
                         {block.description}
                       </p>
                     </div>
@@ -204,33 +204,33 @@ export default function CustomTuckBoxesPage() {
 
         {/* Types of Custom Tuck Boxes Section */}
         {types.length > 0 && (
-          <section className="pt-16 lg:pt-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+          <section className="pt-8 sm:pt-16 lg:pt-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
               {/* Section Header */}
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-medium text-black mb-4">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-2 sm:mb-4" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   Types of Custom Tuck Boxes
                 </h2>
-                <p className="text-base font-normal text-[#575757] max-w-2xl mx-auto">
+                <p className="text-sm sm:text-base font-normal text-[#575757] max-w-2xl mx-auto" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   We offer a complete range of custom tuck packaging boxes to suit different product sizes, weight capacities, and branding needs.
                 </p>
               </div>
 
               {/* Product Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-8 sm:mb-12">
                 {types.map((type) => (
                   <div key={type.id} className="flex flex-col">
                     {/* Product Image */}
-                    <div className="relative w-full mb-4" style={{ height: '344px' }}>
+                    <div className="relative w-full mb-3 sm:mb-4" style={{ height: '200px', minHeight: '200px' }}>
                       <Image
                         src={type.image}
                         alt={type.name}
                         fill
-                        className="object-cover rounded-[28px]"
+                        className="object-cover rounded-[20px] sm:rounded-[28px]"
                       />
                     </div>
                     {/* Product Title */}
-                    <h3 className="text-base font-normal text-black text-left">
+                    <h3 className="text-sm sm:text-base font-normal text-black text-left" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                       {type.name}
                     </h3>
                   </div>
@@ -238,11 +238,11 @@ export default function CustomTuckBoxesPage() {
               </div>
 
               {/* Buttons */}
-              <div className="flex gap-4 justify-center">
-                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-colors">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
+                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   Request a Quote
                 </button>
-                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-3 px-8 rounded-full transition-colors">
+                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   View All
                 </button>
               </div>

@@ -11,12 +11,12 @@ const TEAM = [
 
 export default function MeetTheTeam() {
   return (
-    <section className="py-14 lg:py-20 bg-white">
+    <section className="py-8 sm:py-14 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-[40px] font-medium font-montserrat text-brand-secondary text-center mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium font-montserrat text-brand-secondary text-center mb-3 sm:mb-4">
           Meet the Team
         </h2>
-        <p className="text-base text-[#575757] text-center max-w-3xl mx-auto leading-relaxed mb-12">
+        <p className="text-sm sm:text-base text-[#575757] text-center max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12">
           Our team is a blend of creative thinkers, strategic minds, and skilled
           professionals who work hard together to deliver exceptional results.
         </p>

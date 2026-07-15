@@ -175,13 +175,13 @@ export default function StandardTuckBoxesProductPage() {
 
         {/* Feature Blocks Section */}
         {featureBlocks.length > 0 && (
-          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '30px', paddingBottom: '30px' }}>
+          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '20px', paddingBottom: '20px' }}>
             <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1140px' }}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 {featureBlocks.map((block) => (
-                  <div key={block.id} className="flex gap-4">
+                  <div key={block.id} className="flex gap-3 sm:gap-4">
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-10 h-10">
+                    <div className="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10">
                       <Image
                         src={block.icon}
                         alt={block.title}
@@ -192,10 +192,10 @@ export default function StandardTuckBoxesProductPage() {
                     </div>
                     {/* Title and Description */}
                     <div className="flex-1">
-                      <h3 className="text-sm font-bold text-[#05766E] leading-4 mb-1 whitespace-pre-line">
+                      <h3 className="text-xs sm:text-sm font-bold text-[#05766E] leading-3 sm:leading-4 mb-0.5 sm:mb-1 whitespace-pre-line">
                         {block.title}
                       </h3>
-                      <p className="text-xs font-normal text-[#575757] whitespace-pre-line">
+                      <p className="text-[10px] sm:text-xs font-normal text-[#575757] whitespace-pre-line">
                         {block.description}
                       </p>
                     </div>
@@ -207,86 +207,84 @@ export default function StandardTuckBoxesProductPage() {
         )}
 
         {/* Product Benefits Section */}
-        <section className="py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-16 lg:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <div className="text-center mb-16">
-              <p className="text-sm font-normal text-[#00756E]" style={{ fontFamily: 'Inter' }}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <p className="text-xs sm:text-sm font-normal text-[#00756E]" style={{ fontFamily: 'Inter' }}>
                 Our Straight Tuck Boxes Make
               </p>
-              <h2 className="text-4xl font-medium text-black mt-2" style={{ fontFamily: 'Inter' }}>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mt-2 sm:mt-3" style={{ fontFamily: 'Inter' }}>
                 Packaging Easier & Quicker
               </h2>
             </div>
 
-            {/* Center Image with surrounding cards */}
-            <div className="relative flex justify-center items-center">
+            {/* Mobile/Tablet: Stacked Layout | Desktop: Cards around image */}
+            <div className="flex flex-col lg:relative lg:flex lg:justify-center lg:items-center">
               {/* Center Product Image */}
-              <div className="relative w-full max-w-md h-96 flex justify-center items-center">
-                <Image
-                  src="/Products-images/tuck-box-image.png"
-                  alt="Tuck Box"
-                  width={300}
-                  height={400}
-                  className="object-contain"
-                />
+              <div className="relative w-full flex justify-center items-center mb-8 sm:mb-12 lg:mb-0 order-2 lg:order-none">
+                <div className="relative w-40 sm:w-48 lg:w-64 h-48 sm:h-64 lg:h-96 flex justify-center items-center">
+                  <Image
+                    src="/Products-images/tuck-box-image.png"
+                    alt="Tuck Box"
+                    width={300}
+                    height={400}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
 
-              {/* Cards positioned around image */}
-              <div className="absolute inset-0 flex flex-col justify-between">
-                {/* Top Row */}
-                <div className="flex justify-between px-4">
+              {/* Cards - Responsive Grid */}
+              <div className="w-full order-3 lg:order-none">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:absolute lg:inset-0 lg:flex lg:flex-col lg:justify-between">
                   {/* Top Left Card */}
-                  <div className="w-40 text-center">
-                    <div className="w-12 h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-3">
+                  <div className="w-full lg:w-40 text-center mx-auto lg:absolute lg:top-0 lg:left-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-2 sm:mb-3 text-lg">
                       ✓
                     </div>
-                    <h3 className="font-medium text-base text-black mb-2" style={{ fontFamily: 'Inter' }}>
+                    <h3 className="font-medium text-sm sm:text-base text-black mb-1 sm:mb-2" style={{ fontFamily: 'Inter' }}>
                       Lightweight yet Durable
                     </h3>
-                    <p className="font-medium text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
+                    <p className="font-medium text-xs sm:text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
                       Tuck boxes are made from durable materials that offer strength and protection while
                     </p>
                   </div>
 
                   {/* Top Right Card */}
-                  <div className="w-40 text-center">
-                    <div className="w-12 h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-3">
+                  <div className="w-full lg:w-40 text-center mx-auto lg:absolute lg:top-0 lg:right-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-2 sm:mb-3 text-lg">
                       ✓
                     </div>
-                    <h3 className="font-medium text-base text-black mb-2" style={{ fontFamily: 'Inter' }}>
+                    <h3 className="font-medium text-sm sm:text-base text-black mb-1 sm:mb-2" style={{ fontFamily: 'Inter' }}>
                       Easy to Assemble
                     </h3>
-                    <p className="font-medium text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
+                    <p className="font-medium text-xs sm:text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
                       Boxes can be put together by simple folding without glue, speeding up the whole
                     </p>
                   </div>
-                </div>
 
-                {/* Bottom Row */}
-                <div className="flex justify-between px-4">
                   {/* Bottom Left Card */}
-                  <div className="w-40 text-center">
-                    <div className="w-12 h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-3">
+                  <div className="w-full lg:w-40 text-center mx-auto lg:absolute lg:bottom-0 lg:left-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-2 sm:mb-3 text-lg">
                       ✓
                     </div>
-                    <h3 className="font-medium text-base text-black mb-2" style={{ fontFamily: 'Inter' }}>
+                    <h3 className="font-medium text-sm sm:text-base text-black mb-1 sm:mb-2" style={{ fontFamily: 'Inter' }}>
                       Lightweight yet Durable
                     </h3>
-                    <p className="font-medium text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
+                    <p className="font-medium text-xs sm:text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
                       Tuck boxes are made from durable materials that offer strength and protection while
                     </p>
                   </div>
 
                   {/* Bottom Right Card */}
-                  <div className="w-40 text-center">
-                    <div className="w-12 h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-3">
+                  <div className="w-full lg:w-40 text-center mx-auto lg:absolute lg:bottom-0 lg:right-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#00756E] text-white flex items-center justify-center mx-auto mb-2 sm:mb-3 text-lg">
                       📦
                     </div>
-                    <h3 className="font-medium text-base text-black mb-2" style={{ fontFamily: 'Inter' }}>
+                    <h3 className="font-medium text-sm sm:text-base text-black mb-1 sm:mb-2" style={{ fontFamily: 'Inter' }}>
                       Space Efficient
                     </h3>
-                    <p className="font-medium text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
+                    <p className="font-medium text-xs sm:text-sm text-gray-600" style={{ fontFamily: 'Inter' }}>
                       These boxes ship flat, helping you save on storage and shipping costs. Ideal for your
                     </p>
                   </div>

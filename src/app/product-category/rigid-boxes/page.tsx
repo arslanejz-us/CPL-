@@ -67,7 +67,7 @@ export default function RigidBoxesPage() {
         <StaticCategoryHero breadcrumbLabel={heroData.breadcrumbLabel} title={heroData.title} description={heroData.description} />
         {trustedBrands.length > 0 && <TrustedBrands brands={trustedBrands} />}
         {featureBlocks.length > 0 && (
-          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '30px', paddingBottom: '30px' }}>
+          <section className="w-full" style={{ backgroundColor: '#F7F7F7', paddingTop: '20px', paddingBottom: '20px' }}>
             <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1140px' }}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {featureBlocks.map((block) => (
@@ -89,8 +89,8 @@ export default function RigidBoxesPage() {
           <section className="pt-16 lg:pt-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-medium text-black mb-4">Types of Rigid Boxes</h2>
-                <p className="text-base font-normal text-[#575757] max-w-2xl mx-auto">Explore our premium rigid box collection for luxury packaging solutions.</p>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-2 sm:mb-4" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>Types of Rigid Boxes</h2>
+                <p className="text-sm sm:text-base font-normal text-[#575757] max-w-2xl mx-auto" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>Explore our premium rigid box collection for luxury packaging solutions.</p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {types.map((type) => (

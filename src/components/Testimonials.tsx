@@ -95,14 +95,14 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
   };
 
   return (
-    <section className="bg-white py-16" id="testimonials">
+    <section className="bg-white py-8 sm:py-12 lg:py-16" id="testimonials">
       {/* Header - centered with max-width */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-secondary tracking-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-brand-secondary tracking-tight">
             What Our Clients Say
           </h2>
-          <p className="text-gray-500 mt-2 text-sm">
+          <p className="text-gray-500 mt-2 text-xs sm:text-sm">
             Loved by brands and individuals across the globe
           </p>
         </div>

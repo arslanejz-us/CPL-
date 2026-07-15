@@ -39,7 +39,7 @@ function Group({ label, options }: { label: string; options: string[] }) {
 
 export default function LiveBoxBuilder() {
   return (
-    <section className="bg-brand-primary text-white py-20" id="builder">
+    <section className="bg-brand-primary text-white py-12 sm:py-16 lg:py-20" id="builder">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left config */}

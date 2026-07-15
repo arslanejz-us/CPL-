@@ -214,33 +214,32 @@ export default function CustomizationSection() {
   return (
     <>
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16">
         <div className="text-center my-0">
-          <h2 className="text-4xl font-medium text-black mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-3 sm:mb-4" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Customize Every Detail With Purpose
           </h2>
-          <p className="text-base font-normal text-[#575757] max-w-2xl mx-auto m-0">
+          <p className="text-sm sm:text-base font-normal text-[#575757] max-w-2xl mx-auto m-0" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             From the design to the final detailing, every element is up to you. Take a closer look at customization options that enhance the overall appeal of your custom boxes.
-
           </p>
         </div>
       </div>
 
       {/* Tabs Bar - Full Width */}
-      <div style={{ backgroundColor: "#007066", width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
+      <div style={{ backgroundColor: "#007066" }} className="w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center" style={{ scrollBehavior: "smooth" }}>
+          <div className="grid grid-cols-4 sm:grid-cols-8 lg:flex lg:justify-between gap-0" style={{ scrollBehavior: "smooth" }}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-2 pb-3 flex items-center gap-2 transition-all border-b-2 font-medium text-sm text-white ${activeTab === tab.id
+                className={`py-3 sm:py-4 px-1.5 sm:px-3 pb-2 sm:pb-3 flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2 transition-all border-b-2 font-medium text-[9px] sm:text-sm text-white h-auto min-h-[48px] justify-center flex-1 sm:flex-initial ${activeTab === tab.id
                   ? "border-white font-bold"
                   : "border-transparent hover:opacity-80"
                   }`}
-                style={{ fontFamily: "Inter" }}
+                style={{ fontFamily: "Inter", lineHeight: "1.2" }}
               >
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                <div className="w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center flex-shrink-0">
                   <Image
                     src={tab.icon}
                     alt={tab.name}
@@ -249,7 +248,7 @@ export default function CustomizationSection() {
                     className="w-full h-full"
                   />
                 </div>
-                <span>{tab.name}</span>
+                <span className="text-center leading-tight text-[8px] sm:text-sm">{tab.name}</span>
               </button>
             ))}
           </div>
@@ -257,20 +256,20 @@ export default function CustomizationSection() {
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {activeTabData && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {activeTabData.products.map((product) => (
               <div key={product.id} className="flex flex-col">
                 {/* Product Card */}
                 <div
-                  className="rounded-[28px] overflow-hidden bg-white"
-                  style={{ width: "100%", maxWidth: "381px", height: "381px", border: "1px solid #CBBEAE" }}
+                  className="rounded-[20px] sm:rounded-[28px] overflow-hidden bg-white flex flex-col"
+                  style={{ border: "1px solid #CBBEAE", minHeight: "280px", height: "auto" }}
                 >
-                  {/* Image Section - 70% */}
+                  {/* Image Section - Responsive */}
                   <div
-                    className="relative w-full"
-                    style={{ height: "267px" }}
+                    className="relative w-full flex-shrink-0"
+                    style={{ height: "160px", minHeight: "160px" }}
                   >
                     <Image
                       src={product.image}
@@ -280,15 +279,14 @@ export default function CustomizationSection() {
                     />
                   </div>
 
-                  {/* Text Section - 30% */}
+                  {/* Text Section - Flexible */}
                   <div
-                    className="p-4 flex flex-col justify-center"
-                    style={{ height: "114px" }}
+                    className="p-3 sm:p-4 flex flex-col justify-center flex-1"
                   >
-                    <h3 className="text-sm font-semibold text-black mb-1">
+                    <h3 className="text-xs sm:text-sm font-semibold text-black mb-1">
                       {product.name}
                     </h3>
-                    <p className="text-xs font-normal text-[#575757] line-clamp-2">
+                    <p className="text-[10px] sm:text-xs font-normal text-[#575757] line-clamp-2">
                       {product.description}
                     </p>
                   </div>

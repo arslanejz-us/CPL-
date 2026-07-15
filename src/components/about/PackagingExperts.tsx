@@ -37,22 +37,22 @@ const EXPERTS = [
 
 export default function PackagingExperts() {
   return (
-    <section className="py-14 lg:py-20 bg-white">
+    <section className="py-8 sm:py-14 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-[40px] font-medium font-montserrat text-brand-secondary text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium font-montserrat text-brand-secondary text-center mb-8 sm:mb-12">
           Meet your Custom Packaging Experts
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {EXPERTS.map((expert) => (
             <div
               key={expert.title}
-              className={`${expert.bg} rounded-lg p-6 pt-8 min-h-[320px] flex flex-col`}
+              className={`${expert.bg} rounded-lg p-4 sm:p-6 sm:pt-8 min-h-[280px] sm:min-h-[320px] flex flex-col`}
             >
               <Image
                 src={expert.icon}
                 alt=""
-                className="w-16 h-16 object-contain mb-6"
+                className="w-12 sm:w-16 h-12 sm:h-16 object-contain mb-4 sm:mb-6"
               />
               <h3 className="text-lg font-medium font-montserrat text-brand-secondary mb-3">
                 {expert.title}

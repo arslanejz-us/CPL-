@@ -9,7 +9,7 @@ export default function DeliveryVideo() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="bg-white py-12" id="delivery">
+    <section className="bg-white py-8 sm:py-12 lg:py-16" id="delivery">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-brand-beige rounded-3xl p-6 md:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left content */}

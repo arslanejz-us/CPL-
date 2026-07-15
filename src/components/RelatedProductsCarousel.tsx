@@ -57,14 +57,14 @@ export default function RelatedProductsCarousel({ products }: { products: Produc
   };
 
   return (
-    <section className="pt-6 lg:pt-8 pb-16 lg:pb-20 bg-white">
+    <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 lg:pb-20 bg-white">
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
         <div className="text-center">
-          <h2 className="text-4xl font-medium text-black mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-2 sm:mb-4" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Related Products
           </h2>
-          <p className="text-base font-normal text-[#575757] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base font-normal text-[#575757] max-w-2xl mx-auto" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Discover packaging tailored for your products
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function RelatedProductsCarousel({ products }: { products: Produc
                   />
                 </div>
                 {/* Product Title */}
-                <h3 className="text-base font-normal text-black text-left">
+                <h3 className="text-sm sm:text-base font-normal text-black text-left" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   {product.name}
                 </h3>
               </div>
