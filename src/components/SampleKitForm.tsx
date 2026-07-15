@@ -14,16 +14,32 @@ export default function SampleKitForm({
   showPricingButton = false,
 }: SampleKitFormProps) {
   return (
-    <section className="relative py-10 lg:py-12" id="sample-kit">
-      {/* Full-section background image */}
+    <section
+      className="relative overflow-hidden bg-brand-primary-dark py-10 lg:min-h-[424px] lg:flex lg:items-center lg:py-12"
+      id="sample-kit"
+    >
+      {/* Desktop: full-width banner image */}
       <Image
         src={sampleKitImg}
-        alt="Free sample kit"
+        alt=""
         fill
-        className="object-cover object-right"
+        className="hidden lg:block object-cover object-right pointer-events-none"
+        sizes="100vw"
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Mobile / tablet: image anchored to top-right, fades into solid background */}
+      <div className="absolute inset-x-0 top-0 h-[240px] sm:h-[280px] md:h-[320px] lg:hidden overflow-hidden pointer-events-none">
+        <Image
+          src={sampleKitImg}
+          alt=""
+          fill
+          className="object-cover object-right"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/10 via-brand-primary-dark/60 to-brand-primary-dark" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-xl">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">
             Order a Free Sample Kit
@@ -52,7 +68,7 @@ export default function SampleKitForm({
 
             <button
               type="submit"
-              className={`justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 rounded-md transition-colors mt-2 whitespace-nowrap ${
+              className={`justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 rounded-md transition-colors mt-2 whitespace-nowrap border border-white/20 ${
                 showPricingButton ? "px-6 sm:col-span-2 min-w-[290px]" : "px-10"
               }`}
             >
