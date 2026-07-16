@@ -24,7 +24,8 @@ export default function ContactHero() {
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
             href="#quote"
-            className="bg-brand-primary hover:bg-brand-primary-dark text-white font-medium py-2.5 px-6 rounded-md text-sm transition-colors"
+            className="bg-brand-primary hover:bg-brand-primary-dark text-white font-medium py-2.5 px-6 text-sm transition-colors"
+            style={{ borderRadius: '10px' }}
           >
             Get a Quote
           </Link>

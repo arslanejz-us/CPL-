@@ -21,11 +21,13 @@ export default function Newsletter() {
             type="email"
             required
             placeholder="Email Address"
-            className="w-full sm:w-auto bg-white border border-gray-300 focus:border-brand-primary outline-none rounded-md py-2 sm:py-2.5 px-3 sm:px-4 text-sm transition-colors"
+            className="w-full sm:w-auto bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-2.5 px-3 sm:px-4 text-sm transition-colors"
+            style={{ borderRadius: '10px' }}
           />
           <button
             type="submit"
-            className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-2.5 px-4 sm:px-7 rounded-md transition-colors whitespace-nowrap"
+            className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-2.5 px-4 sm:px-7 transition-colors whitespace-nowrap"
+            style={{ borderRadius: '10px' }}
           >
             Subscribe
           </button>

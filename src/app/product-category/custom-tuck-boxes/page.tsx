@@ -149,10 +149,10 @@ export default function CustomTuckBoxesPage() {
 
   // Trusted Brands Data
   const trustedBrands = [
-    { id: "1", brand_name: "Brand A", brand_logo: null },
-    { id: "2", brand_name: "Brand B", brand_logo: null },
-    { id: "3", brand_name: "Brand C", brand_logo: null },
-    { id: "4", brand_name: "Brand D", brand_logo: null },
+    { id: "1", brand_name: "Brand A", brand_logo: undefined },
+    { id: "2", brand_name: "Brand B", brand_logo: undefined },
+    { id: "3", brand_name: "Brand C", brand_logo: undefined },
+    { id: "4", brand_name: "Brand D", brand_logo: undefined },
   ];
 
   return (
@@ -221,7 +221,7 @@ export default function CustomTuckBoxesPage() {
                 {types.map((type) => (
                   <div key={type.id} className="flex flex-col">
                     {/* Product Image */}
-                    <div className="relative w-full mb-3 sm:mb-4" style={{ height: '200px', minHeight: '200px' }}>
+                    <div className="relative w-full mb-3 sm:mb-4" style={{ height: '344px', minHeight: '344px' }}>
                       <Image
                         src={type.image}
                         alt={type.name}
@@ -239,10 +239,10 @@ export default function CustomTuckBoxesPage() {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
-                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-2.5 px-6 sm:px-8 transition-colors text-sm whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", borderRadius: '10px' }}>
                   Request a Quote
                 </button>
-                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-2 sm:py-2.5 px-6 sm:px-8 transition-colors text-sm whitespace-nowrap" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", borderRadius: '10px' }}>
                   View All
                 </button>
               </div>

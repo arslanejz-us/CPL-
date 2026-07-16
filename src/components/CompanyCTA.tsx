@@ -9,7 +9,8 @@ export default function CompanyCTA() {
         </h2>
         <Link
           href="/about-us"
-          className="bg-white text-brand-primary font-semibold py-3 px-7 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap"
+          className="bg-white text-brand-primary font-semibold py-3 px-7 hover:bg-gray-100 transition-colors whitespace-nowrap"
+          style={{ borderRadius: '10px' }}
         >
           See Company Profile
         </Link>

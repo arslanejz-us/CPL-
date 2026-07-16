@@ -41,12 +41,13 @@ export default function ProductHero({ product }: ProductHeroProps) {
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <a
                 href="#quote"
-                className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-6 rounded-md transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-6 transition-colors"
+                style={{ borderRadius: '10px' }}
               >
                 Get a Quote
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <button className="inline-flex items-center justify-center gap-2 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/5 font-semibold py-3 px-6 rounded-md transition-colors">
+              <button className="inline-flex items-center justify-center gap-2 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/5 font-semibold py-3 px-6 transition-colors" style={{ borderRadius: '10px' }}>
                 View Samples
               </button>
             </div>

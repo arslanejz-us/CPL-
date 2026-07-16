@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const inputClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors placeholder-gray-400 rounded-[10px]";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors placeholder-gray-400";
 
 const textareaClass =
-  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors resize-none placeholder-gray-400 rounded-[10px]";
+  "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors resize-none placeholder-gray-400";
 
 type StaticCategoryHeroProps = {
   breadcrumbLabel: string;
@@ -19,7 +19,7 @@ export default function StaticCategoryHero({
 }: StaticCategoryHeroProps) {
   return (
     <section
-      className="relative w-full py-8 sm:py-12 lg:py-0"
+      className="relative w-full py-12 sm:py-16 lg:py-24"
       style={{
         backgroundImage: 'url(/Product-categories/Product-categories-background.webp)',
         backgroundSize: 'cover',
@@ -61,19 +61,21 @@ export default function StaticCategoryHero({
             </div>
 
             {/* Quote Form - NO Card Background */}
-            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4">
+            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4" style={{ borderRadius: '10px' }}>
               {/* Row 1: Name and Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
                   type="text"
                   placeholder="Name"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
               </div>
@@ -84,12 +86,14 @@ export default function StaticCategoryHero({
                   type="tel"
                   placeholder="Phone"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
                 <input
                   type="text"
                   placeholder="Quantity"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                 />
               </div>
 
@@ -98,14 +102,15 @@ export default function StaticCategoryHero({
                 placeholder="Provide Packaging Details"
                 rows={2}
                 className={textareaClass}
+                style={{ borderRadius: '10px' }}
               />
 
               {/* Get a Quote Button */}
               <div className="flex justify-start pt-1">
                 <button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap"
-                  style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 transition-colors text-sm sm:text-base whitespace-nowrap"
+                  style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", borderRadius: '10px' }}
                 >
                   Get a Quote
                 </button>

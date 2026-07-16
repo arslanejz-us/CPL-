@@ -54,10 +54,10 @@ export default function CustomMailerBoxesPage() {
   ];
 
   const trustedBrands = [
-    { id: "1", brand_name: "Brand A", brand_logo: null },
-    { id: "2", brand_name: "Brand B", brand_logo: null },
-    { id: "3", brand_name: "Brand C", brand_logo: null },
-    { id: "4", brand_name: "Brand D", brand_logo: null },
+    { id: "1", brand_name: "Brand A", brand_logo: undefined },
+    { id: "2", brand_name: "Brand B", brand_logo: undefined },
+    { id: "3", brand_name: "Brand C", brand_logo: undefined },
+    { id: "4", brand_name: "Brand D", brand_logo: undefined },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function CustomMailerBoxesPage() {
                 ))}
               </div>
               <div className="flex gap-4 justify-center">
-                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-colors">Request a Quote</button>
-                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-3 px-8 rounded-full transition-colors">View All</button>
+                <button className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 transition-colors" style={{ borderRadius: '10px' }}>Request a Quote</button>
+                <button className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-3 px-8 transition-colors" style={{ borderRadius: '10px' }}>View All</button>
               </div>
             </div>
           </section>

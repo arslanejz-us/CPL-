@@ -43,7 +43,8 @@ export default function Sustainability() {
             </p>
             <Link
               href="#quote"
-              className="inline-block mt-7 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-7 rounded-md transition-colors"
+              className="inline-block mt-7 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-7 transition-colors"
+              style={{ borderRadius: '10px' }}
             >
               Begin Your Journey
             </Link>
@@ -54,7 +55,8 @@ export default function Sustainability() {
             {PILLARS.map(({ title, desc, Icon }) => (
               <div
                 key={title}
-                className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow"
+                style={{ borderRadius: '10px' }}
               >
                 <span className="w-11 h-11 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6" />

@@ -66,7 +66,7 @@ export default function LiveBoxBuilder() {
                 <span className="block text-xs text-gray-500 font-medium">Est. unit price</span>
                 <span className="text-2xl font-extrabold text-brand-primary">$1.24</span>
               </div>
-              <button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold py-3 px-6 rounded-md transition-colors">
+              <button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold py-3 px-6 transition-colors" style={{ borderRadius: '10px' }}>
                 Start Designing
               </button>
             </div>

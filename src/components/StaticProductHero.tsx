@@ -76,19 +76,21 @@ export default function StaticProductHero({
             </div>
 
             {/* Quote Form */}
-            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4">
+            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4" style={{ borderRadius: '10px' }}>
               {/* Row 1: Name and Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
                   type="text"
                   placeholder="Name"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
               </div>
@@ -99,12 +101,14 @@ export default function StaticProductHero({
                   type="tel"
                   placeholder="Phone"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                   required
                 />
                 <input
                   type="text"
                   placeholder="Quantity"
                   className={inputClass}
+                  style={{ borderRadius: '10px' }}
                 />
               </div>
 
@@ -113,13 +117,15 @@ export default function StaticProductHero({
                 placeholder="Provide Packaging Details"
                 rows={2}
                 className={textareaClass}
+                style={{ borderRadius: '10px' }}
               />
 
               {/* Get a Quote Button */}
               <div className="flex justify-start pt-1">
                 <button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 rounded-full transition-colors text-sm sm:text-base"
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 transition-colors text-sm sm:text-base"
+                  style={{ borderRadius: '10px' }}
                 >
                   Get a Quote
                 </button>

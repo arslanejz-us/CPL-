@@ -36,7 +36,7 @@ export default function TuckBoxCustomization() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {customizationOptions.map((option, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-brand-light to-white rounded-2xl p-8 border border-brand-primary/10">
+            <div key={idx} className="bg-gradient-to-br from-brand-light to-white p-8 border border-brand-primary/10" style={{ borderRadius: '10px' }}>
               <h3 className="text-2xl font-bold text-brand-secondary mb-6">
                 {option.category}
               </h3>
@@ -59,7 +59,8 @@ export default function TuckBoxCustomization() {
           </p>
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 rounded-md transition-colors"
+            className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 transition-colors"
+            style={{ borderRadius: '10px' }}
           >
             Start Your Custom Design
           </a>

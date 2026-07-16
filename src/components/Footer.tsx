@@ -12,12 +12,12 @@ const COMPANY_LINKS: { label: string; href: string }[] = [
 ];
 
 const PRODUCTS_LINKS: { label: string; href: string }[] = [
-  { label: "Cosmetic Boxes", href: "#" },
-  { label: "Soap Boxes", href: "#" },
-  { label: "Candle Boxes", href: "#" },
-  { label: "CBD Boxes", href: "#" },
-  { label: "Retail Boxes", href: "#" },
-  { label: "View All", href: "#" },
+  { label: "Cosmetic Boxes", href: "/products/cosmetic-boxes" },
+  { label: "Soap Boxes", href: "/products/soap-boxes" },
+  { label: "Candle Boxes", href: "/products/candle-boxes" },
+  { label: "CBD Boxes", href: "/products/cbd-boxes" },
+  { label: "Retail Boxes", href: "/products/retail-boxes" },
+  { label: "View All", href: "/products" },
 ];
 
 const SHAPES_LINKS: { label: string; href: string }[] = [
@@ -25,8 +25,8 @@ const SHAPES_LINKS: { label: string; href: string }[] = [
   { label: "Custom Mailer Boxes", href: "/product-category/custom-mailer-boxes" },
   { label: "Custom Tuck Boxes", href: "/product-category/custom-tuck-boxes" },
   { label: "Custom Rigid Boxes", href: "/product-category/rigid-boxes" },
-  { label: "Window Boxes", href: "#" },
-  { label: "View All", href: "#" },
+  { label: "Window Boxes", href: "/product-category/window-boxes" },
+  { label: "View All", href: "/product-category/folding-cartons" },
 ];
 
 const COLUMNS = [

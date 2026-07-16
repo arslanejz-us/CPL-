@@ -263,13 +263,13 @@ export default function CustomizationSection() {
               <div key={product.id} className="flex flex-col">
                 {/* Product Card */}
                 <div
-                  className="rounded-[20px] sm:rounded-[28px] overflow-hidden bg-white flex flex-col"
-                  style={{ border: "1px solid #CBBEAE", minHeight: "280px", height: "auto" }}
+                  className="overflow-hidden bg-white flex flex-col"
+                  style={{ border: "1px solid #CBBEAE", minHeight: "344px", height: "auto", borderRadius: '10px' }}
                 >
                   {/* Image Section - Responsive */}
                   <div
                     className="relative w-full flex-shrink-0"
-                    style={{ height: "160px", minHeight: "160px" }}
+                    style={{ height: "220px", minHeight: "220px" }}
                   >
                     <Image
                       src={product.image}
@@ -281,9 +281,9 @@ export default function CustomizationSection() {
 
                   {/* Text Section - Flexible */}
                   <div
-                    className="p-3 sm:p-4 flex flex-col justify-center flex-1"
+                    className="p-2.5 sm:p-3 flex flex-col justify-center flex-1"
                   >
-                    <h3 className="text-xs sm:text-sm font-semibold text-black mb-1">
+                    <h3 className="text-xs sm:text-sm font-semibold text-black mb-0.5">
                       {product.name}
                     </h3>
                     <p className="text-[10px] sm:text-xs font-normal text-[#575757] line-clamp-2">
