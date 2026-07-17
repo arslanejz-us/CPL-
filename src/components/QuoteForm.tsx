@@ -54,9 +54,8 @@ export default function QuoteForm() {
               <textarea
                 rows={3}
                 className="w-full bg-white border border-gray-200 focus:border-brand-primary outline-none py-2 sm:py-2.5 px-3 sm:px-4 text-xs sm:text-sm transition-colors resize-none placeholder-gray-400"
-                style={{ borderRadius: '10px' }}
                 placeholder="Provide detailed packaging specifications including dimensions, materials, weight restrictions and design references and we'll get back to you with an instant quote."
-                style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
+                style={{ borderRadius: '10px', fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
               />
 
               {/* File upload */}
