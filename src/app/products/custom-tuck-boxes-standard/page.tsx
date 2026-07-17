@@ -26,10 +26,10 @@ export default function StandardTuckBoxesProductPage() {
 
   // Trusted Brands Data
   const trustedBrands = [
-    { id: "1", brand_name: "Brand A", brand_logo: null },
-    { id: "2", brand_name: "Brand B", brand_logo: null },
-    { id: "3", brand_name: "Brand C", brand_logo: null },
-    { id: "4", brand_name: "Brand D", brand_logo: null },
+    { id: "1", brand_name: "Brand A", brand_logo: undefined },
+    { id: "2", brand_name: "Brand B", brand_logo: undefined },
+    { id: "3", brand_name: "Brand C", brand_logo: undefined },
+    { id: "4", brand_name: "Brand D", brand_logo: undefined },
   ];
 
   // Feature Blocks Data
