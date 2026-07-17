@@ -79,8 +79,7 @@ export default function QuoteForm() {
               <button
                 type="submit"
                 className="w-full bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 transition-colors mt-1 text-sm sm:text-base"
-                style={{ borderRadius: '10px' }}
-                style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
+                style={{ borderRadius: '10px', fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
               >
                 Get a Quote
               </button>
