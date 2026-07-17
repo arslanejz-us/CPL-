@@ -8,6 +8,11 @@ const YT_ID = "JDBfpNw3PQo";
 export default function DeliveryVideo() {
   const [isOpen, setIsOpen] = useState(false);
 
+
+
+
+
+
   return (
     <section className="bg-white py-8 sm:py-12 lg:py-16" id="delivery">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
