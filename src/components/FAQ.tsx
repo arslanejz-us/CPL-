@@ -11,26 +11,32 @@ interface FAQ {
 
 const DEFAULT_FAQS = [
   {
+    id: "1",
     question: "What is your standard turnaround time to deliver custom packaging?",
     answer: "We have different turnaround options available depending upon customer needs, but the standard turnaround time for the complete production and shipment of custom packaging and printing is 7-10 business days.",
   },
   {
+    id: "2",
     question: "How do I contact you to order custom packaging?",
     answer: "You can reach us by phone, email, or live chat, and our packaging specialists will guide you through placing your custom order.",
   },
   {
+    id: "3",
     question: "What type of printing options do you have for custom boxes?",
     answer: "We offer digital, offset, and flexographic printing along with finishes such as matte, gloss, soft-touch, spot UV, and foil stamping.",
   },
   {
+    id: "4",
     question: "How can I process my custom packaging order?",
     answer: "Simply request a quote, approve your 3D mockup, confirm your order, and we move it straight into production.",
   },
   {
+    id: "5",
     question: "What is the minimum quantity of custom boxes that I can order?",
     answer: "Our minimum order quantity starts at 100 units, making premium packaging accessible for businesses of every size.",
   },
   {
+    id: "6",
     question: "What packaging elements can I customize?",
     answer: "You can customize the box style, dimensions, material, printing, finish, inserts, and branding to fit your product.",
   },
@@ -63,7 +69,7 @@ export default function FAQ({ faqs }: { faqs?: FAQ[] }) {
             {faqList.map((faq, index) => {
               const isOpen = openIdx === index;
               return (
-                <div key={faq.id || index}>
+                <div key={faq.id}>
                   <button
                     onClick={() => setOpenIdx(isOpen ? null : index)}
                     className="w-full text-left py-5 flex items-center justify-between gap-4"
