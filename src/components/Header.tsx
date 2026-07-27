@@ -22,6 +22,7 @@ const NAV = [
   { name: "Portfolio", href: "#styles", caret: false },
 ];
 
+
 function Logo() {
   return (
     <Link href="/" className="flex items-center flex-shrink-0">
@@ -111,15 +112,13 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 lg:hidden ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 lg:hidden ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setMobileMenuOpen(false)}
       >
         <div
-          className={`absolute top-0 right-0 bottom-0 w-80 max-w-full bg-white shadow-2xl p-6 transition-transform duration-300 flex flex-col ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 bottom-0 w-80 max-w-full bg-white shadow-2xl p-6 transition-transform duration-300 flex flex-col ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
@@ -145,9 +144,8 @@ export default function Header() {
                       className="px-3 py-3 text-gray-700 hover:text-brand-primary"
                     >
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform ${
-                          openDropdown === item.name ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 transition-transform ${openDropdown === item.name ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
                   )}
