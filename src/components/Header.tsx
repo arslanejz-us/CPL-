@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
+import QuoteFormModal from "./QuoteFormModal";
 
 const PRODUCT_CATEGORIES = [
   { name: "Custom Tuck Boxes", href: "/product-category/custom-tuck-boxes" },
@@ -38,6 +39,7 @@ function Logo() {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -86,13 +88,13 @@ export default function Header() {
                   className="w-40 bg-gray-50 border border-gray-200 rounded-full py-2 pl-9 pr-4 text-sm outline-none focus:border-brand-primary transition-colors"
                 />
               </div>
-              <Link
-                href="#quote"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2.5 px-5 text-sm transition-colors"
                 style={{ borderRadius: '10px' }}
               >
                 Get a Quote
-              </Link>
+              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -172,16 +174,21 @@ export default function Header() {
               </div>
             ))}
           </nav>
-          <Link
-            href="#quote"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block w-full bg-brand-primary text-white font-semibold py-3 px-6 text-center"
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setIsModalOpen(true);
+            }}
+            className="block w-full bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-6 text-center transition-colors"
             style={{ borderRadius: '10px' }}
           >
             Get a Quote
-          </Link>
+          </button>
         </div>
       </div>
+
+      {/* Quote Form Modal */}
+      <QuoteFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

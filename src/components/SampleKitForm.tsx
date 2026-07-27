@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import sampleKitImg from "../../public/sample-kit-image.png";
+import { submitFormViaAjax, getFormData } from "@/lib/formSubmit";
 
 const inputClass =
   "w-full bg-transparent border-b border-white/40 focus:border-white outline-none py-2 text-sm text-white placeholder-white/70 transition-colors";
@@ -13,6 +15,8 @@ type SampleKitFormProps = {
 export default function SampleKitForm({
   showPricingButton = false,
 }: SampleKitFormProps) {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
   return (
     <section
       className="relative overflow-hidden bg-brand-primary-dark py-10 lg:min-h-[424px] lg:flex lg:items-center lg:py-12"
@@ -46,18 +50,38 @@ export default function SampleKitForm({
           </h2>
 
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setLoading(true);
+              setMessage("");
+
+              const formElement = e.currentTarget;
+              const formData = getFormData(formElement);
+
+              // Convert checkbox to Yes/No
+              const consentCheckbox = formElement.querySelector('input[name="sms_consent"]') as HTMLInputElement;
+              formData.sms_consent = consentCheckbox?.checked ? "Yes" : "No";
+
+              formData.formType = "sample-kit";
+
+              const response = await submitFormViaAjax(formData, "/api/form-submit", "/thank-you");
+              if (!response.success) {
+                setMessage("✗ " + response.message);
+                setLoading(false);
+              }
+              // If successful, redirect happens automatically via submitFormViaAjax
+            }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4"
           >
-            <input className={inputClass} placeholder="Full Name" />
-            <input className={inputClass} type="email" placeholder="Email" />
-            <input className={inputClass} type="tel" placeholder="Phone" />
-            <input className={inputClass} placeholder="Company" />
-            <input className={inputClass} placeholder="Total Quantity" />
-            <input className={inputClass} placeholder="Address" />
+            <input name="Last_Name" className={inputClass} placeholder="Full Name" required />
+            <input name="Email" className={inputClass} type="email" placeholder="Email" required />
+            <input name="Phone" className={inputClass} type="tel" placeholder="Phone" required />
+            <input name="Company" className={inputClass} placeholder="Company" />
+            <input name="Total_Quantity" className={inputClass} placeholder="Total Quantity" />
+            <input name="Address" className={inputClass} placeholder="Address" />
 
             <label className="sm:col-span-2 flex items-start gap-2.5 mt-2">
-              <input type="checkbox" className="mt-0.5 accent-white" />
+              <input name="sms_consent" type="checkbox" className="mt-0.5 accent-white" required />
               <span className="text-[11px] leading-snug text-white/80">
                 You are agreeing to receive customer care related text messages
                 from Custom Packaging Lane. Message frequency may vary. Standard
@@ -66,13 +90,22 @@ export default function SampleKitForm({
               </span>
             </label>
 
+            {message && (
+              <div className={`sm:col-span-2 text-sm py-2 px-3 rounded text-center ${message.startsWith('✓') ? 'bg-green-100/20 text-green-100' : 'bg-red-100/20 text-red-100'}`}>
+                {message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className={`justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 rounded-md transition-colors mt-2 whitespace-nowrap border border-white/20 ${
+              disabled={loading}
+              className={`justify-self-start bg-brand-primary-dark hover:bg-brand-primary-dark/80 text-white font-semibold py-2.5 rounded-md transition-colors mt-2 whitespace-nowrap border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed ${
                 showPricingButton ? "px-6 sm:col-span-2 min-w-[290px]" : "px-10"
               }`}
             >
-              {showPricingButton ? (
+              {loading ? (
+                "Submitting..."
+              ) : showPricingButton ? (
                 <span className="inline-flex items-center gap-2 whitespace-nowrap">
                   Order my sample kit
                   <span className="inline-flex items-center gap-1.5 font-normal">

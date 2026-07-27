@@ -51,9 +51,9 @@ const TRUST_BADGES = [
 ];
 
 const LOGISTICS = [
-  { src: "/USPS.webp", alt: "USPS", className: "h-12 w-auto object-contain" },
-  { src: "/DHL.webp", alt: "DHL", className: "h-12 w-auto object-contain" },
-  { src: "/FedEx.webp", alt: "FedEx", className: "h-8 w-auto object-contain" },
+  { src: "/USPS.webp", alt: "USPS", className: "h-16 w-auto object-contain" },
+  { src: "/DHL.webp", alt: "DHL", className: "h-16 w-auto object-contain" },
+  { src: "/FedEx.webp", alt: "FedEx", className: "h-16 w-auto object-contain" },
 ];
 
 /* --- Social icons --- */
@@ -154,15 +154,15 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-brand-secondary mb-4">
               Where We&apos;re Trusted
             </h4>
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-wrap items-center gap-8">
               {TRUST_BADGES.map((b) => (
                 <Image
                   key={b.alt}
                   src={b.src}
                   alt={b.alt}
-                  width={200}
+                  width={120}
                   height={48}
-                  className="h-12 w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
               ))}
             </div>

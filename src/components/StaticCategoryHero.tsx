@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { submitFormViaAjax, getFormData } from "@/lib/formSubmit";
+import { useState } from "react";
 
 const inputClass =
   "w-full bg-white border border-gray-300 focus:border-brand-primary outline-none py-2 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm transition-colors placeholder-gray-400";
@@ -17,6 +21,9 @@ export default function StaticCategoryHero({
   title,
   description,
 }: StaticCategoryHeroProps) {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
   return (
     <section
       className="relative w-full py-12 sm:py-16 lg:py-24"
@@ -50,21 +57,63 @@ export default function StaticCategoryHero({
               </div>
 
               {/* Title */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black leading-tight" style={{ fontFamily: "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+              <h1
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black leading-tight"
+                style={{
+                  fontFamily:
+                    "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                }}
+              >
                 {title}
               </h1>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm font-normal text-[#575757] leading-relaxed max-w-md" style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+              <p
+                className="text-xs sm:text-sm font-normal text-[#575757] leading-relaxed max-w-md"
+                style={{
+                  fontFamily:
+                    "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                }}
+              >
                 {description}
               </p>
             </div>
 
             {/* Quote Form - NO Card Background */}
-            <form className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4" style={{ borderRadius: '10px' }}>
+            <form
+              onSubmit={async (e) => {
+                console.log("🔘 Category Hero Button clicked!");
+                e.preventDefault();
+                setLoading(true);
+                setMessage("");
+
+                const formElement = e.currentTarget;
+                const formData = getFormData(formElement);
+
+                // Convert checkbox to Yes/No
+                const consentCheckbox = formElement.querySelector(
+                  'input[name="sms_consent"]'
+                ) as HTMLInputElement;
+                formData.sms_consent = consentCheckbox?.checked ? "Yes" : "No";
+
+                console.log("📦 Category Hero Form data:", formData);
+                formData.formType = "quote-category-hero";
+
+                const response = await submitFormViaAjax(formData, "/api/form-submit", "/thank-you");
+                console.log("🎯 Category Hero response:", response);
+                if (!response.success) {
+                  setMessage("✗ " + response.message);
+                  setLoading(false);
+                }
+                // If successful, redirect happens automatically via submitFormViaAjax
+              }}
+              className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4"
+              style={{ borderRadius: '10px' }}
+            >
               {/* Row 1: Name and Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
+                  name="Last_Name"
                   type="text"
                   placeholder="Name"
                   className={inputClass}
@@ -72,6 +121,7 @@ export default function StaticCategoryHero({
                   required
                 />
                 <input
+                  name="Email"
                   type="email"
                   placeholder="Email"
                   className={inputClass}
@@ -83,6 +133,7 @@ export default function StaticCategoryHero({
               {/* Row 2: Phone and Quantity */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 <input
+                  name="Phone"
                   type="tel"
                   placeholder="Phone"
                   className={inputClass}
@@ -90,6 +141,7 @@ export default function StaticCategoryHero({
                   required
                 />
                 <input
+                  name="Total_Quantity"
                   type="text"
                   placeholder="Quantity"
                   className={inputClass}
@@ -99,20 +151,46 @@ export default function StaticCategoryHero({
 
               {/* Row 3: Product Packaging Details */}
               <textarea
+                name="Description"
                 placeholder="Provide Packaging Details"
                 rows={2}
                 className={textareaClass}
                 style={{ borderRadius: '10px' }}
               />
 
+              {/* SMS Consent Checkbox */}
+              <label className="flex items-center gap-2 text-xs">
+                <input
+                  type="checkbox"
+                  name="sms_consent"
+                  style={{ accentColor: '#00756E' }}
+                />
+                <span className="text-gray-600">I consent to receive SMS updates</span>
+              </label>
+
+              {message && (
+                <div
+                  className={`text-xs py-2 px-3 rounded text-center ${
+                    message.startsWith('✓') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                  }`}
+                >
+                  {message}
+                </div>
+              )}
+
               {/* Get a Quote Button */}
               <div className="flex justify-start pt-1">
                 <button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 transition-colors text-sm sm:text-base whitespace-nowrap"
-                  style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", borderRadius: '10px' }}
+                  disabled={loading}
+                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-2 sm:py-3 px-6 sm:px-12 transition-colors text-sm sm:text-base whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    fontFamily:
+                      "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                    borderRadius: '10px',
+                  }}
                 >
-                  Get a Quote
+                  {loading ? "Submitting..." : "Get a Quote"}
                 </button>
               </div>
             </form>
