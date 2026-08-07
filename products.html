@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse our complete collection of custom packaging products including cosmetic, soap, candle, CBD and retail boxes.">
+  <title>All Products | Custom Packaging Lane</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-xl px-4">
+        <a class="navbar-brand" href="index.html"><img src="assets/images/logos/website-logo.svg" alt="Custom Packaging Lane"></a>
+        <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+          <ul class="navbar-nav gap-4">
+            <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#styles">Shapes &amp; Styles</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-brand btn-sm" data-quote-modal-open>Get a Quote</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products-list-hero py-5">
+      <div class="container-xl px-4 text-center">
+        <h1 class="products-list-hero__title">All Products</h1>
+        <p class="products-list-hero__subtitle">Explore our complete range of custom packaging solutions</p>
+      </div>
+    </section>
+
+    <section class="pb-5">
+      <div class="container-xl px-4">
+        <div class="row g-4 g-lg-5" id="productsGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xl px-4 py-4 text-center">
+      <p class="copyright mb-0">© Custom Packaging Lane 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/form-submit.js"></script>
+  <script src="js/quote-modal.js"></script>
+  <script>
+    (function () {
+      var products = [
+        { slug: "cosmetic-boxes", title: "Custom Cosmetic Boxes", subtitle: "Premium cosmetic packaging for beauty brands", badge: "Cosmetics", image: "assets/images/industries/cosmetic-packaging.png" },
+        { slug: "soap-boxes", title: "Custom Soap Boxes", subtitle: "Beautiful packaging for artisan and commercial soap", badge: "Soap", image: "assets/images/styles/custom-tuck-boxes.png" },
+        { slug: "candle-boxes", title: "Custom Candle Boxes", subtitle: "Elegant boxes for luxury scented candles", badge: "Candles", image: "assets/images/styles/custom-mailer-boxes.png" },
+        { slug: "cbd-boxes", title: "Custom CBD Product Boxes", subtitle: "Compliant packaging for CBD wellness products", badge: "CBD", image: "assets/images/industries/food-packaging.png" },
+        { slug: "retail-boxes", title: "Custom Retail Boxes", subtitle: "Shelf-ready packaging for retail stores", badge: "Retail", image: "assets/images/industries/retail-packaging.png" }
+      ];
+      document.getElementById("productsGrid").innerHTML = products.map(function (p) {
+        return '<div class="col-sm-6 col-lg-4"><a href="products/' + p.slug + '.html" class="products-list-card">' +
+          '<div class="products-list-card__img"><img src="' + p.image + '" alt="' + p.title + '" loading="lazy"></div>' +
+          '<h2 class="products-list-card__title">' + p.title + '</h2>' +
+          '<p class="products-list-card__subtitle">' + p.subtitle + '</p>' +
+          '<span class="products-list-card__badge">' + p.badge + '</span></a></div>';
+      }).join("");
+    })();
+  </script>
+</body>
+</html>
