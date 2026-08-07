@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium custom cosmetic boxes for beauty brands.">
+  <title>Custom Cosmetic Boxes | Custom Packaging Lane</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-product="cosmetic-boxes">
+  <div id="site-header"></div>
+  <main>
+    <section class="product-hero">
+      <div class="container-xl px-4 product-hero__inner">
+        <div class="product-hero__grid">
+          <div class="product-hero__image-col">
+            <div class="product-hero__image">
+              <img id="productHeroImage" src="../assets/images/client-say-one.png" alt="Custom Cosmetic Boxes">
+            </div>
+          </div>
+          <div class="product-hero__content-col">
+            <div class="product-hero__intro">
+              <nav class="product-breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a><span>/</span>
+                <a href="../products.html" id="productBreadcrumbCategory">Cosmetic</a><span>/</span>
+                <span id="productBreadcrumbLabel">Cosmetic Boxes</span>
+              </nav>
+              <h1 class="product-hero__title" id="productHeroTitle">Custom Cosmetic Boxes</h1>
+              <p class="product-hero__desc" id="productHeroDesc">Premium cosmetic packaging designed to showcase your beauty products with elegance and protection.</p>
+            </div>
+            <form class="product-hero-form" data-ajax-form data-form-type="product-hero" novalidate>
+              <div class="product-hero-form__fields">
+                <div class="row g-2 g-sm-3">
+                  <div class="col-sm-6"><input type="text" class="form-control" name="Last_Name" placeholder="Name" required></div>
+                  <div class="col-sm-6"><input type="email" class="form-control" name="Email" placeholder="Email" required></div>
+                  <div class="col-sm-6"><input type="tel" class="form-control" name="Phone" placeholder="Phone" required></div>
+                  <div class="col-sm-6"><input type="text" class="form-control" name="Total_Quantity" placeholder="Quantity"></div>
+                  <div class="col-12"><textarea class="form-control" name="Description" rows="2" placeholder="Provide Packaging Details"></textarea></div>
+                </div>
+              </div>
+              <div class="product-hero-form__footer">
+                <label class="product-hero-form__consent">
+                  <input type="checkbox" name="sms_consent" id="heroSmsConsent">
+                  <span>I consent to receive SMS updates</span>
+                </label>
+                <p class="small d-none" data-form-message></p>
+                <div class="product-hero-form__actions">
+                  <button type="submit" class="btn btn-brand product-hero-form__submit">Get a Quote</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="productMain"></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/form-submit.js"></script>
+  <script src="../js/quote-modal.js"></script>
+  <script src="../js/category-pages-data.js"></script>
+  <script src="../js/product-pages-data.js"></script>
+  <script src="../js/product-page.js"></script>
+</body>
+</html>

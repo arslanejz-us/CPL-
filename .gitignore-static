@@ -1,0 +1,41 @@
+# Logs
+/logs/
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Node (from previous setup)
+node_modules/
+.next/
+dist/
+build/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Editor temp files
+*.swp
+*.swo
